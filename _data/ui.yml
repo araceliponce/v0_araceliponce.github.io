@@ -1,0 +1,7 @@
+header:
+  proyectos:
+    label: proyectos
+    link: /#projects
+  contacto:
+    label: ontacto
+    link: /#link

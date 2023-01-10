@@ -1,0 +1,126 @@
+.projects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column wrap;
+  flex-flow: column wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.projects li {
+  min-height: 90vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.card {
+  -webkit-perspective: 100rem;
+  perspective: 100rem;
+  height: 60vh;
+  width: min(80vw, 33rem);
+  position: relative;
+  background-color: var(--body-background-color);
+  /* same as body bg or */
+  background-color: transparent;
+}
+
+.card__side {
+  min-height: 60vh;
+  width: min(80vw, 33rem);
+  /* a pareer necesita un width, no un min-width o max-width*/
+  -webkit-transition: all 0.8s ease;
+  -o-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 3px;
+  overflow: hidden;
+  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+}
+
+.card__side--front {
+  background-color: var(--card-bg, #1c1c1c);
+  display: grid;
+  /* para centrar */
+
+  padding: 1rem;
+}
+
+.card__side--back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg);
+  background-color: var(--card-bg, #1c1c1c);
+
+  padding: 3rem;
+}
+
+.card:hover .card__side--front,
+.card:focus-visible .card__side--front {
+  -webkit-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+.card:hover .card__side--back,
+.card:focus-visible .card__side--back {
+  -webkit-transform: rotateY(0deg);
+  transform: rotateY(0deg);
+}
+
+/* .card__cont {
+  height: 15rem;
+  background-color: #1c1c1c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  /* yo pensaba column pero bueno 
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+} */
+
+
+
+.card__side--back strong {
+  display: inline-block;
+  background-color: gray;
+  padding: .2rem;
+
+  background-color: var(--button-background-color);
+  border-color: var(--button-border-color);
+  border-width: var(--button-border-width);
+  color: var(--button-color);
+  font-size: var(--button-font-size);
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+  text-align: center;
+  white-space: nowrap;
+
+  border-radius: var(--radius);
+  padding: var(--code-padding);
+  /* box-padding > ...button-paddings > code-padding */
+}

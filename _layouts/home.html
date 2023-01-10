@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body>
+
+  <header class="p-3">
+    <section class="container is-max-desktop is-flex is-align-items-center">
+      <button id="toggle" class="button is-small is-ghost mr-1">
+        <span class="is-sr-only">light/dark mode</span>
+        <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
+          <path d="M12 4h.01"></path>
+          <path d="M20 12h.01"></path>
+          <path d="M12 20h.01"></path>
+          <path d="M4 12h.01"></path>
+          <path d="M17.657 6.343h.01"></path>
+          <path d="M17.657 17.657h.01"></path>
+          <path d="M6.343 17.657h.01"></path>
+          <path d="M6.343 6.343h.01"></path>
+        </svg>
+        <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 12 16 a 4 4 0 1 0 0 -8 a 4 4 0 0 0 0 8 z "></path>
+          <path d="M 12 4 v 2"></path>
+          <path d="M 20 12 h -2 "></path>
+          <path d="M 12 20 v -2"></path>
+          <path d="M 4 12 h 2 "></path>
+          <path d="M 17.657 6.343 l -1.657 1.657"></path>
+          <path d="M 17.657 17.657 l -1.657 -1.657 "></path>
+          <path d=" M 6.343 17.657 l 1.657 -1.657"></path>
+          <path d="M 6.343 6.343 l 1.657 1.657"></path>
+        </svg>
+
+        <style>
+          [data-state='dark'] .sun {
+            display: none;
+          }
+
+          [data-state='light'] .moon {
+            display: none;
+          }
+        </style>
+
+
+      </button>
+      <nav class=" is-flex-grow-1">
+        <ul>
+          <li class="logo"> <a href="">araceli.</a></li>
+          <li>
+            <a href="#">
+              <p>proyectos</p>
+            </a>
+          </li>
+          <li>
+            <a href="#" title="contacto">
+              <p>contacto</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+  </header>
+
+
+  <main>
+
+    <section class="hero container is-max-desktop">
+      <div>
+        <p class="subtitle is-2">Hello, I'm</p>
+        <h1>
+          <span>Araceli</span>
+          <span>Ponce</span>
+          <span>desarrolladora web</span>
+        </h1>
+
+      </div>
+    </section>
+
+
+
+    <section class="container is-max-desktop" aria-labelledby="projectsTitle">
+      <h2 id="projectsTitle" class="title">PROYECTOS</h2>
+      <p class="subtitle"></p>
+
+      <ul class="projects">
+        {%-for project in site.data.projects-%}
+        <li>
+          <div class="card" tabindex="0">
+            <div class="card__side card__side--front">
+              <figure>
+                <img src="{{site.url |append:'/imgs/' | append: project.img}}" alt="{{project.name | prepend: 'captura de pantalla de ' }}">
+              </figure>
+              <h3>{{project.name}}</h3>
+            </div>
+            <div class="card__side card__side--back">
+              <!-- Back Content -->
+              {{-project.desc | markdownify-}}
+              <button class="project__cta"></button>
+            </div>
+        </li>
+        {% endfor %}
+
+      </ul>
+    </section>
+
+
+
+
+
+    <section id="acerca" class="container is-max-desktop" aria-labelledby="contactTitle">
+
+      <h3 id="contactTitle" class="title is-2">ACERCA DE MI</h3>
+      <p class="subtitle"> Cuando se trata de tecnología, soy capaz de diseñar, desarrollar e implementar una amplia gama de aplicaciones y sitios web</p>
+      <p class="subtitle">Estas son las herramientas con las que más he trabajado</p>
+      {% include tools.html %}
+      <p class="subtitle"> Escribeme si tienes una pregunta o un proyecto en el que pueda ayudarte. Te dejo <a href="mailto:aponcesanga@gmail.com" title="gmail de Araceli Ponce">mi correo</a> y <a href="https://github.com/araceliponce/" target="_blank" rel="noopener noreferrer" title="github de Araceli Ponce">mi github</a>
+      </p>
+    </section>
+
+    <a href="http://" target="_blank" rel="noopener noreferrer"></a>
+
+
+
+
+
+  </main>
+  <footer class="is-flex is-align-items-center py-3">
+    <p>&copy; Copyright MMXVIII. Designed and coded by Araceli Ponce</p>
+    <a class="button is-ghost" href="#">Volver arriba!</a>
+  </footer>
+</body>
+
+</html>

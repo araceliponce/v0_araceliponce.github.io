@@ -1,0 +1,278 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+
+  scroll-behavior: smooth;
+}
+
+/* this is the <html> */
+.dark {
+  --body-background-color: var(--black-ter);
+  --body-color: var(--grey-lighter);
+
+
+  /* above is important */
+
+
+  --black-bis: hsl(0deg, 0%, 9%);
+  --black-ter: hsl(0deg, 0%, 14%);
+  --grey-darker: hsl(0deg, 0%, 21%);
+  --grey-dark: hsl(0deg, 0%, 29%);
+  --grey: hsl(0deg, 0%, 48%);
+  --grey-light: hsl(0deg, 0%, 71%);
+  --grey-lighter: hsl(0deg, 0%, 86%);
+  --grey-lightest: hsl(0deg, 0%, 93%);
+  --white-ter: hsl(0deg, 0%, 92%);
+  --white-bis: hsl(0deg, 0%, 96%);
+}
+
+html,
+body {
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+
+body {
+  font-family: 'sono' !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+
+li {
+  list-style: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+small {
+  display: block;
+}
+
+
+
+
+body {
+
+  background-image: -webkit-gradient(linear, left top, left bottom, from(var(--body-background-color)), to(#9431f6));
+
+  background-image: -o-linear-gradient(var(--body-background-color) 0%, #9431f6 100%);
+
+  background-image: linear-gradient(var(--body-background-color) 0%, #9431f6 100%);
+}
+
+/* for header */
+
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+
+  gap: 1rem;
+  font-size: 1.3rem;
+
+}
+
+header .logo+li {
+  margin-left: auto;
+}
+
+
+/* HERO SECTION */
+.hero {
+  min-height: 90vh;
+  display: grid;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.hero * {
+  text-align: center;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+
+
+.hero span {
+  font-weight: 500;
+}
+
+.hero span:first-child {
+  color: #ed6d59;
+  text-transform: uppercase;
+}
+
+.hero span:nth-child(2) {
+  color: rgb(158, 68, 248);
+  text-transform: uppercase;
+}
+
+.hero span:last-child {
+  display: block;
+  font-size: 2rem;
+}
+
+
+
+/* IMGS */
+figure {
+  position: relative;
+  display: block;
+}
+
+figure::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  -webkit-backdrop-filter: blur(3px) opacity(.4) brightness(1.2);
+  backdrop-filter: blur(3px) opacity(.4) brightness(1.2);
+}
+
+.dark figure::after {
+  -webkit-backdrop-filter: blur(3px) opacity(.4) brightness(.8);
+  backdrop-filter: blur(3px) opacity(.4) brightness(.8);
+}
+
+
+/* TOOLS SECTION */
+
+.tools {
+  /* max-width: 70ch; */
+  margin-inline: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.tools>li {
+  --gap: 1rem;
+  /* max-width: 40%; */
+  margin-bottom: 5ch;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+
+  -webkit-column-break-inside: avoid;
+  -moz-column-break-inside: avoid;
+  break-inside: avoid;
+  /* important */
+}
+
+
+.tools svg {
+  width: 8ch;
+  aspect-ratio: 1;
+  margin-inline: auto;
+  display: block;
+  /* important */
+}
+
+.tools svg+small {
+  text-align: center;
+}
+
+/* https://rajshekhar26.github.io/ colors html css */
+
+
+.is-grid {
+  /* display: grid;
+  grid-auto-flow: row dense;
+  /* row is default, include anyways 
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto; */
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  columns: 2;
+  -webkit-column-width: auto;
+  -moz-column-width: auto;
+  column-width: auto;
+  -webkit-column-width: 30ch;
+  -moz-column-width: 30ch;
+  column-width: 30ch;
+}
+
+.card__side * {
+  color: var(--body-color);
+  line-height: 1.5;
+}
+
+
+
+/* these change bulma's defaults */
+.container {
+  padding: .5rem 2rem 1rem 2rem;
+  /* outline: 1px solid; */
+}
+
+.title,
+.subtitle {
+  display: block;
+  margin-inline: auto !important;
+  text-align: center;
+  color: var(--body-color) !important;
+}
+
+.subtitle {
+  line-height: 2;
+  max-width: 52ch;
+}
+
+.is-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: var(--gap, .5rem);
+}
+
+/* .is-flex h3 {
+  text-align: center;
+} */
