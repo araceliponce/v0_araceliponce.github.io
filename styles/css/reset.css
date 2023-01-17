@@ -136,11 +136,11 @@ small {
   background-image: linear-gradient(var(--primary-dark) 0%, var(--secondary-dark) 100%);
 }
 
-[data-dark='true'] .is-primary {
+/* [data-dark='true'] .is-primary {
   --primary-dark: var(--primary-light);
   --primary: var(--primary-invert);
   --primary-invert: var(--primary-dark)
-}
+} */
 
 
 
