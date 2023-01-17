@@ -1,7 +1,37 @@
 header:
   proyectos:
-    label: proyectos
-    link: /#projects
+    label:
+      en: Projects 
+      es: Proyectos
+    id:
+      en: projects
+      es: proyectos
+
   contacto:
-    label: ontacto
-    link: /#link
+    label:
+      en: Contact
+      es: Contacto
+    id:
+      en: contact
+      es: contacto
+
+hero:
+  hello:
+    en: Hi, I'm
+    es: Hola, yo soy
+  role:
+    en: Front end developer
+    es: Desarrolladora front end
+  desc:
+    en: I'm a developer with a passion for building nice and accessible websites
+    es: #
+
+about:
+  me_as_dev:
+    en: I wish to develop and maintain all sorts of websites from e-commerce to portfolios to blogs with features like toggeable sections, dinamic layouts, event calendars, and so much more.
+    es:
+  my_tools:
+    en: Currently, my main areas of focus revolve around HTML5, CSS3 and Javascript, but I also have a major understanding of many web tehnologies
+  how_to:
+    en: 
+    es: 

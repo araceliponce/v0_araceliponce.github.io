@@ -1,62 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang={{page.lang}}>
 
 {% include head.html %}
 
 <body>
 
-  <header class="p-3">
+  <script>
+    var hasUsedDarkMode = localStorage.getItem("hasUsedDarkMode");
+    var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)')['matches']; //sin el ['matches'] devuelve: MediaQueryList { media: "(prefers-color-scheme: dark)", matches: true, onchange: null }
+
+    // console.log(hasUsedDarkMode, prefersDarkMode)
+
+    // hasUsedDarkMode == null ? document.documentElement.dataset.dark = prefersDarkMode : document.documentElement.dataset.dark = hasUsedDarkMode
+
+    //si es true data-dark va a ser igual a ese true
+    //si es null entonces va a usar la preferencia de su dispositivo (true si prefiere dark-mode)
+
+    document.documentElement.dataset.dark = hasUsedDarkMode || 'true';
+
+    // console.log(document.documentElement.dataset)
+  </script>
+
+  <header class="pt-2">
     <section class="container is-max-desktop is-flex is-align-items-center">
-      <button id="toggle" class="button is-small is-ghost mr-1">
-        <span class="is-sr-only">light/dark mode</span>
-        <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
-          <path d="M12 4h.01"></path>
-          <path d="M20 12h.01"></path>
-          <path d="M12 20h.01"></path>
-          <path d="M4 12h.01"></path>
-          <path d="M17.657 6.343h.01"></path>
-          <path d="M17.657 17.657h.01"></path>
-          <path d="M6.343 17.657h.01"></path>
-          <path d="M6.343 6.343h.01"></path>
-        </svg>
-        <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M 12 16 a 4 4 0 1 0 0 -8 a 4 4 0 0 0 0 8 z "></path>
-          <path d="M 12 4 v 2"></path>
-          <path d="M 20 12 h -2 "></path>
-          <path d="M 12 20 v -2"></path>
-          <path d="M 4 12 h 2 "></path>
-          <path d="M 17.657 6.343 l -1.657 1.657"></path>
-          <path d="M 17.657 17.657 l -1.657 -1.657 "></path>
-          <path d=" M 6.343 17.657 l 1.657 -1.657"></path>
-          <path d="M 6.343 6.343 l 1.657 1.657"></path>
-        </svg>
-
-        <style>
-          [data-state='dark'] .sun {
-            display: none;
-          }
-
-          [data-state='light'] .moon {
-            display: none;
-          }
-        </style>
-
-
-      </button>
-      <nav class=" is-flex-grow-1">
-        <ul>
-          <li class="logo"> <a href="">araceli.</a></li>
-          <li>
-            <a href="#">
-              <p>proyectos</p>
+      <nav class="has-full-width">
+        <ul class="is-flex is-align-items-center">
+          <li class="logo">
+            <a href="/" class="">
+              APS
             </a>
           </li>
           <li>
-            <a href="#" title="contacto">
-              <p>contacto</p>
+            <a href="/">es</a>|<a href="/en">en</a>
+          </li>
+          <li>
+            <a class="" href="#{{site.data.ui.header.proyectos.id[page.lang]}}" title="{{site.data.ui.header.proyectos.label[page.lang]}}">{{site.data.ui.header.proyectos.label[page.lang]}}
             </a>
           </li>
+          <li>
+            <a class="" href="#{{site.data.ui.header.contacto.id[page.lang]}}" title="{{site.data.ui.header.contacto.label[page.lang]}}">{{site.data.ui.header.contacto.label[page.lang]}}
+            </a>
+          </li>
+          <li>
+            <button id="toggle" class="button is-small is-ghost p-0">
+              <span class="is-sr-only">light/dark mode</span>
+              <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path>
+                <path d="M12 4h.01"></path>
+                <path d="M20 12h.01"></path>
+                <path d="M12 20h.01"></path>
+                <path d="M4 12h.01"></path>
+                <path d="M17.657 6.343h.01"></path>
+                <path d="M17.657 17.657h.01"></path>
+                <path d="M6.343 17.657h.01"></path>
+                <path d="M6.343 6.343h.01"></path>
+              </svg>
+              <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M 12 16 a 4 4 0 1 0 0 -8 a 4 4 0 0 0 0 8 z "></path>
+                <path d="M 12 4 v 2"></path>
+                <path d="M 20 12 h -2 "></path>
+                <path d="M 12 20 v -2"></path>
+                <path d="M 4 12 h 2 "></path>
+                <path d="M 17.657 6.343 l -1.657 1.657"></path>
+                <path d="M 17.657 17.657 l -1.657 -1.657 "></path>
+                <path d=" M 6.343 17.657 l 1.657 -1.657"></path>
+                <path d="M 6.343 6.343 l 1.657 1.657"></path>
+              </svg>
+
+            </button>
+          </li>
+
         </ul>
       </nav>
     </section>
@@ -65,21 +78,23 @@
 
   <main>
 
-    <section class="hero container is-max-desktop">
-      <div>
-        <p class="subtitle is-2">Hello, I'm</p>
+    <section class="hero">
+      <div class="container is-max-desktop">
+        <p class="subtitle is-4">{{site.data.ui.hero.hello[page.lang]}}</p>
         <h1>
-          <span>Araceli</span>
-          <span>Ponce</span>
-          <span>desarrolladora web</span>
+          <span class="colored" aria-label="Araceli Ponce Sanga">
+            <span aria-hidden="true">Araceli</span>
+            <span aria-hidden="true">Ponce</span>
+          </span>
+          <span split-by="letter" class="subtitle is-3 letters-rotate" aria-label="{{site.data.ui.hero.role[page.lang]}}">{{site.data.ui.hero.role[page.lang]}}</span>
         </h1>
-
+        <p><strong>{{site.data.ui.hero.desc[page.lang]}}</strong></p>
       </div>
     </section>
 
 
 
-    <section class="container is-max-desktop" aria-labelledby="projectsTitle">
+    <section id="{{site.data.ui.header.proyectos.id[page.lang]}}" class="container is-max-desktop" aria-labelledby="projectsTitle">
       <h2 id="projectsTitle" class="title">PROYECTOS</h2>
       <p class="subtitle"></p>
 
@@ -89,20 +104,25 @@
           <div class="card" tabindex="0">
             <div class="card__side card__side--front">
               <figure>
-                <img src="{{site.url |append:'/imgs/' | append: project.img}}" alt="{{project.name | prepend: 'captura de pantalla de ' }}">
+                <img src="{{site.url}}/imgs/{{project.img}}" alt="{{project.name | prepend: 'captura de pantalla de ' }}">
               </figure>
-              <h3>{{project.name}}</h3>
+              <h3 class="project__name">{{project.name}}</h3>
             </div>
             <div class="card__side card__side--back">
-              <!-- Back Content -->
-              {{-project.desc | markdownify-}}
-              <button class="project__cta"></button>
+              {{-project.desc[page.lang] | markdownify-}}
+              <a href="{{project.link}}" target="_blank" rel="noopener noreferrer" class="button is-primary">PRUEBA LA DEMO</a>
+              <a href="https://github.com/araceliponce/{{project.repo}}" target="_blank" rel="noopener noreferrer" class="button is-secondary">VISITA EL CÓDIGO</a>
             </div>
         </li>
         {% endfor %}
 
       </ul>
     </section>
+
+
+    <style>
+
+    </style>
 
 
 

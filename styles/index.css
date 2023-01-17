@@ -1,8 +1,6 @@
-/* @import "../node_modules/bulma/bulma.sass";
-@import "../node_modules/bulma-prefers-dark/bulma-prefers-dark.sass"; */
-/* como @import '../node_modules/@bulvar/bulma/css/bulma.css';
- no me funciona,copio el ntenido a un css */
+/* como @import '../node_modules/@bulvar/bulma/css/bulma.css'; no me funciona,copio el contenido a un css */
 
-@import 'css/bulma.css';
+/* @import 'css/bulma.css'; */
+@import 'css/lightbulma.css';
 @import 'css/reset.css';
 @import 'css/projects.css';

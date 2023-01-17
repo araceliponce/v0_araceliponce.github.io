@@ -1,0 +1,25 @@
+.orange {
+  font-size: 2.2rem;
+  margin-right: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.orange>* {
+  /* text-align: center; is not needed since they are centered blocks now */
+  display: block;
+  margin-inline: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+
+  margin-bottom: -.4em;
+  /* dont use lineheight, yes margin b */
+}
+
+.orange>*:nth-child(2) {
+  -webkit-transform: scale(1.47, .7);
+  -ms-transform: scale(1.47, .7);
+  transform: scale(1.47, .7);
+}

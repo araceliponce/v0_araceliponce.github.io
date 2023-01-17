@@ -1,15 +1,23 @@
 -
-  name: untitled
-  link: adfgdshsjk
-  subtitle: the one that started as a reminder app
-  desc: simple and easy to use startpage developed on **html**, **scss** and **lots of js**. im adding at least one functionality every week
+  name: pasiflora
+  img: pasiflora1.png
+  link: /#
+  repo_name: pasiflora
+  subtitle: 
+    en: hello pasiflora
+    es: Hola pasiflora
+  desc: 
+    en: Custom multipage ecommerce website. It features 
+    es: Sitio ecommerce de varias páginas, desarrollado usando **Bootstrap**, **CSS3**, **Liquid**, **Jekyll** y varios archivos **YAML** para el manejo sencillo de la navegacion y articulos en el catalogo
 
 -
-  name: araceliponce.github.io
-  link: aadfaagaa
-  desc: this website!! is a static site powered by  jekyll. here i use Javascript and Liquid for the logic and Bulma styles mixed with custom css. this also uses some github page plugins for automatic sitemaps an seo meta tags
-  
--
-  name: flowerstore
-  desc: custom multipage ecommerce website that features alanding page, a catalog page and has a cart in progress. made with **html**, **css**, **js** and **json files**
-  link: asafghaj
+  name: araceli ponce github page
+  img: 404.png
+  link: /#
+  repo_name: araceliponce.github.io
+  subtitle: 
+    en: this very same site
+    es: estas aquí
+  desc: 
+    en: Static bilingual site I created using **Jekyll**, **Bulma**, **Liquid**, and of course **HTML5**, **CSS3** and **Javascript**. It's still a work in progress!
+    es: Sitio estático bilingue que creé usando **Jekyll**, **Bulma**, **Liquid**, y, claro está **HTML5**, **CSS3** y **Javascript**. Aún es un proyecto en desarrollo!

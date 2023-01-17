@@ -15,30 +15,59 @@
 }
 
 .projects li {
-  min-height: 90vh;
+  /* min-height: 90vh; en lugar de colocar un min height, un card+card*/
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+
+  min-width: 100%;
+  position: relative;
+}
+
+.projects li+li {
+  margin-top: 5vh;
+  /* background-color: pink; */
+}
+
+@media screen and (min-width: 40rem) {
+  .projects li+li {
+    margin-top: 30vh;
+    /* background-color: orange; */
+  }
+}
+
+.card,
+.card__side {
+  /* width: min(86vw, 40rem); */
+  width: min(100%, 40rem);
+  /* 100% can be used but the parents and their parents... have to have a set width (ie 100% ) or one grandparent can be .relative*/
+
+  min-height: 66vh;
+  /* o 70vh */
 }
 
 .card {
+  color: var(--body-color);
+  line-height: 1.3;
+
   -webkit-perspective: 100rem;
   perspective: 100rem;
-  height: 60vh;
-  width: min(80vw, 33rem);
+  /* height: 60vh; */
   position: relative;
   background-color: var(--body-background-color);
   /* same as body bg or */
   background-color: transparent;
+
+  margin-inline: auto;
+  /* el padding del ul parecia que lo centraba pero no */
 }
 
+
 .card__side {
-  min-height: 60vh;
-  width: min(80vw, 33rem);
-  /* a pareer necesita un width, no un min-width o max-width*/
+  /* a parecer necesita un width, no un min-width o max-width*/
   -webkit-transition: all 0.8s ease;
   -o-transition: all 0.8s ease;
   transition: all 0.8s ease;
@@ -56,7 +85,7 @@
 
 .card__side--front {
   background-color: var(--card-bg, #1c1c1c);
-  display: grid;
+  /* display: grid; */
   /* para centrar */
 
   padding: 1rem;
@@ -68,6 +97,11 @@
   background-color: var(--card-bg, #1c1c1c);
 
   padding: 3rem;
+}
+
+.card__side--back>p {
+  margin-bottom: 1rem;
+  /* separacion entre p y btns */
 }
 
 .card:hover .card__side--front,
@@ -82,28 +116,7 @@
   transform: rotateY(0deg);
 }
 
-/* .card__cont {
-  height: 15rem;
-  background-color: #1c1c1c;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-  /* yo pensaba column pero bueno 
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-} */
-
-
-
-.card__side--back strong {
+.card strong {
   display: inline-block;
   background-color: gray;
   padding: .2rem;
@@ -123,4 +136,19 @@
   border-radius: var(--radius);
   padding: var(--code-padding);
   /* box-padding > ...button-paddings > code-padding */
+}
+
+
+figure {
+  aspect-ratio: 9/5;
+  overflow: hidden;
+}
+
+.project__name {
+  text-align: center;
+  font-size: 2rem;
+  text-transform: uppercase;
+
+  margin-bottom: 0;
+  /* important */
 }

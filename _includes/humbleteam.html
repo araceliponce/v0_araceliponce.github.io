@@ -1,0 +1,46 @@
+<h1 class="orange">
+  <span>ARACELI</span>
+  <P>PONCE</P>
+  <P>!</P>
+</h1>
+
+
+<div class="cookies">
+  <span>Cookies make everything better, including this website. <a href="http://" target="_blank" rel="noopener noreferrer">Cookie policies</a></span>
+  <button>ACEPTAR COOKIES</button>
+</div>
+
+<style>
+  * {
+    background-color: orangered;
+    color: white;
+  }
+
+  .orange {
+    font-size: 3rem;
+    font-family: monospace;
+    /* margin-right: auto; */
+    width: fit-content;
+
+  }
+
+  .orange>* {
+    /* text-align: center; is not needed since they are centered blocks now */
+    display: block;
+    margin-inline: auto;
+    width: fit-content;
+    line-height: 0;
+
+    margin-bottom: -.4em;
+    text-rendering: optimizeLegibility;
+  }
+
+  .orange>*:nth-child(2) {
+    transform: scale(1.47, .7);
+  }
+
+  .cookies {
+    position: fixed;
+    bottom: 0;
+  }
+</style>

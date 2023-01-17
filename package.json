@@ -1,0 +1,23 @@
+{
+  "name": "araceliponce.github.io",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "purgecss": "^5.0.0"
+  },
+  "scripts": {
+    "limpiacss" : "purgecss --css ./styles/css/bulma.css --content *.html --output ./styles/css/lightbulma.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/araceliponce/araceliponce.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/araceliponce/araceliponce.github.io/issues"
+  },
+  "homepage": "https://github.com/araceliponce/araceliponce.github.io#readme"
+}
