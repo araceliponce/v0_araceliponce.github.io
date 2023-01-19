@@ -28,6 +28,8 @@ svg {
   max-width: 100%;
 }
 
+
+
 ul,
 ol {
   padding-left: 0;
@@ -61,9 +63,14 @@ small {
 .title,
 .subtitle {
   display: block;
-  margin-inline: auto !important;
+  margin-inline: auto;
+  /* !important no necesario */
   text-align: center;
   color: var(--body-color) !important;
+}
+
+.subtitle {
+  text-align: start;
 }
 
 .is-flex {
@@ -95,8 +102,12 @@ small {
 
 [data-dark='true'] {
 
+  --text: var(--text-invert);
+  --text-invert: var(--text);
   --body-background-color: var(--black-ter);
   --body-color: var(--grey-lighter);
+
+
 
 
   /* above is important */
@@ -110,6 +121,28 @@ small {
   --grey-lightest: hsl(0deg, 0%, 93%);
   --white-ter: hsl(0deg, 0%, 92%);
   --white-bis: hsl(0deg, 0%, 96%);
+}
+
+body {
+  --ch-limit: 52ch;
+}
+
+
+
+
+button,
+a {
+  border: .2rem solid transparent;
+  background: transparent;
+  cursor: pointer;
+}
+
+a:hover {
+  color: currentColor;
+}
+
+a:visited {
+  color: cornflowerblue;
 }
 
 
@@ -136,21 +169,11 @@ small {
   background-image: linear-gradient(var(--primary-dark) 0%, var(--secondary-dark) 100%);
 }
 
-/* [data-dark='true'] .is-primary {
-  --primary-dark: var(--primary-light);
-  --primary: var(--primary-invert);
-  --primary-invert: var(--primary-dark)
-} */
-
 
 
 /* FOR THE HEADER */
 
 header ul {
-
-  /*   -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end; */
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -ms-flex-flow: row wrap;
@@ -166,11 +189,29 @@ header .logo+li {
   margin-left: auto;
 }
 
+/* ancho fijo para li en headers para cuando pase de en a es y de es a en, menos el logo y el btn  */
+header li {
+  min-width: 12ch;
+  text-align: center;
+}
+
+header li:first-child,
+header li:nth-child(2),
+header li:last-child {
+  min-width: auto;
+}
+
+/* enlaces y cualquier texto dentro de header del mismo color */
+a,
+header span {
+  color: var(--text);
+}
 
 /* FOR THE HERO */
 .hero {
   --color-1: hsl(8, 80%, 64%);
   --color-2: hsl(270, 93%, 62%);
+  --span-gap: .7ch;
 
   font-weight: 500;
   min-height: 90vh;
@@ -196,71 +237,65 @@ header .logo+li {
   animation-iteration-count: 1;
 }
 
-.letters-rotate {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+.hero>* {
+  line-height: .7;
 }
 
-/* no-preferene | reduce */
-@media (prefers-reduced-motion: no-preference) {
+.hero-name-and-role {
+  line-height: .8;
+}
 
+.hero-role {
+  gap: var(--span-gap);
+  padding: 2rem 0;
+}
+
+.hero-role>* {
+  /* --gap: .2rem; */
+  font-size: 2rem;
+}
+
+.hero-desc {
+  line-height: 1.7;
+  max-width: min(30rem, calc(100vw-5rem));
+}
+
+/* .letters-rotate {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+} */
+
+/* no-preference | reduce */
+@media (prefers-reduced-motion: no-preference) {
   .letters-rotate>span {
-    min-width: .7ch;
+    min-width: var(--span-gap);
     /* for the empty span that had no width */
     display: inline-block;
-    /* font-size: 40px; */
     text-transform: uppercase;
     -webkit-animation: flip 4s infinite;
     animation: flip 4s infinite;
-    -webkit-animation-delay: calc(.1s * var(--i));
-    animation-delay: calc(.1s * var(--i))
+    -webkit-animation-delay: calc(.05s * var(--i));
+    animation-delay: calc(.05s * var(--i))
+  }
+}
+
+/* si puede hacer hover */
+@media (hover:hover) {
+  .letters-bounce {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
   }
 
-  @-webkit-keyframes flip {
-
-    0%,
-    80% {
-      -webkit-transform: rotateY(360deg);
-      transform: rotateY(360deg)
-    }
+  .letters-bounce:hover>span {
+    color: blue;
   }
 
-  @keyframes flip {
+  .letters-bounce>span {}
 
-    0%,
-    80% {
-      -webkit-transform: rotateY(360deg);
-      transform: rotateY(360deg)
-    }
+  .letters-bounce>span:hover {
+    color: pink;
   }
-
-
-  [moves="subtly"]:hover>span {
-    -webkit-transform: scale(.75);
-    -ms-transform: scale(.75);
-    transform: scale(.75);
-  }
-
-  [moves="subtly"]>span {
-    -webkit-transition: -webkit-transform .3s ease;
-    transition: -webkit-transform .3s ease;
-    -o-transition: transform .3s ease;
-    transition: transform .3s ease;
-    transition: transform .3s ease, -webkit-transform .3s ease;
-    cursor: pointer;
-  }
-
-  [moves="subtly"]>span:hover {
-    -webkit-transition: -webkit-transform .3s ease;
-    transition: -webkit-transform .3s ease;
-    -o-transition: transform .3s ease;
-    transition: transform .3s ease;
-    transition: transform .3s ease, -webkit-transform .3s ease;
-    -webkit-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    transform: scale(1.3);
-  }
-
 }
 
 
@@ -314,8 +349,12 @@ h1 {
 }
 
 .subtitle {
-  line-height: .7;
-  max-width: 52ch;
+  line-height: 1;
+  max-width: var(--ch-limit);
+}
+
+.subtitle+.subtitle {
+  margin-top: .3ch;
 }
 
 
@@ -350,7 +389,9 @@ figure::after {
 /* FOR THE TOOLS SECTION */
 
 .tools {
-  /* max-width: 70ch; */
+  --gap: 1rem;
+
+  max-width: var(--ch-limit);
   margin-inline: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -359,16 +400,15 @@ figure::after {
   -webkit-box-direction: normal;
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  gap: 3rem;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  gap: var(--gap);
 }
 
 .tools>li {
-  --gap: 1rem;
   /* max-width: 40%; */
-  margin-bottom: 5ch;
+  margin-bottom: var(--gap);
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -378,8 +418,6 @@ figure::after {
   break-inside: avoid;
   /* important */
 }
-
-
 
 
 .tools svg {
@@ -393,9 +431,6 @@ figure::after {
 .tools svg+small {
   text-align: center;
 }
-
-/* https://rajshekhar26.github.io/ colors html css */
-
 
 .is-grid {
   /* display: grid;
@@ -412,4 +447,136 @@ figure::after {
   -webkit-column-width: 30ch;
   -moz-column-width: 30ch;
   column-width: 30ch;
+}
+
+
+
+/* FOR THE CONTACT SECTION */
+
+.contact svg {
+  min-width: 4ch;
+  aspect-ratio: 1;
+  fill: cornflowerblue;
+
+}
+
+/* animations */
+
+@-webkit-keyframes flip {
+
+  0%,
+  80% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg)
+  }
+}
+
+@keyframes flip {
+
+  0%,
+  80% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg)
+  }
+}
+
+
+/* experimental */
+
+
+input[type="number"]:in-range {
+  background-color: greenyellow;
+}
+
+input[type="number"]:out-of-range {
+  background-color: orange;
+
+}
+
+
+.tools svg {
+  --shadow: var(--text);
+
+  -webkit-transition: .2s all ease;
+  -o-transition: .2s all ease;
+  transition: .2s all ease;
+}
+
+.tools li:hover>svg {
+  -webkit-filter: drop-shadow(.1rem .1rem .3rem var(--shadow));
+  filter: drop-shadow(.1rem .1rem .3rem var(--shadow))
+}
+
+li:hover .html5 {
+  fill: orange;
+}
+
+li:hover .css3 {
+  fill: blue;
+}
+
+li:hover .sass {
+  fill: pink;
+}
+
+li:hover .jquery {
+  fill: blue;
+}
+
+li:hover .javascript {
+  fill: yellow;
+}
+
+li:hover .mongodb {
+  fill: rgba(36, 155, 36, 0.751);
+}
+
+li:hover .figma {
+  fill: coral;
+}
+
+li:hover .angular {
+  fill: red;
+}
+
+li:hover .jekyll {
+  fill: rgba(176, 26, 26, 0.79);
+}
+
+li:hover .bootstrap {
+  fill: rgba(95, 28, 163, 0.647);
+}
+
+li:hover .bulma {
+  fill: rgba(54, 117, 219, 0.751);
+}
+
+
+section:target {
+  outline: .1rem solid var(--text);
+}
+
+
+/* FOR THE FOOTER */
+
+footer {
+  padding: 2rem 0;
+}
+
+.bg-52 {
+  position: relative;
+}
+
+.bg-52::before {
+  content: '';
+  position: absolute;
+  inset: -200% 0 0 0;
+  background: transparent;
+  background: -o-linear-gradient(transparent 5%, rgba(100, 148, 237, 0.704));
+
+
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(5%, transparent), to(rgba(100, 148, 237, 0.704)));
+
+
+  background: linear-gradient(transparent 5%, rgba(100, 148, 237, 0.704));
 }

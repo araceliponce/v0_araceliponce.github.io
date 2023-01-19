@@ -1115,6 +1115,24 @@ strong {
   width: 0.01em !important;
 }
 
+@media screen and (max-width: 768px) {
+  .is-hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  .is-hidden-tablet-only {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1215px) {
+  .is-hidden-desktop-only {
+    display: none !important;
+  }
+}
+
 /* Bulma Helpers */
 :root {
   --hero-body-padding: 3rem 1.5rem;

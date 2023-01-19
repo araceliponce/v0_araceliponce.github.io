@@ -1,6 +1,6 @@
 const page = document.documentElement;
 const toggle = document.getElementById('toggle');
-const allSvgs = document.querySelectorAll('main svg');
+const mainSvgs = document.querySelectorAll('.tools svg');
 
 const { matches: motionOK } = window.matchMedia(
   '(prefers-reduced-motion: no-preference)'
@@ -58,13 +58,19 @@ if (motionOK) {
 document.addEventListener('DOMContentLoaded', () => {
 
   console.log('dom loaded');
-  allSvgs.forEach(svg => {
+
+  //agregamos spans de texto a los svgs, y clases tambien
+  mainSvgs.forEach(svg => {
 
     let text = svg.querySelector('title').textContent;
 
     svg.insertAdjacentHTML('afterend', `<small>${text}</small>`)
+    svg.classList.add(text.toLowerCase());
   })
 })
+
+
+
 
 
 
@@ -77,17 +83,4 @@ toggle.addEventListener("click", () => {
   }
 
   hasUsedDarkMode = localStorage.setItem("hasUsedDarkMode", page.dataset.dark);
-  // console.log('cambió?', page.dataset.dark, 'aaaa')
 });
-
-
-/* function addDarkMode() {
-  hasUsedDarkMode = localStorage.setItem("hasUsedDarkMode", "true");
-}
-
-function removeDarkMode() {
-  hasUsedDarkMode = localStorage.setItem("hasUsedDarkMode", "false");
-  // body.classList.remove("dark");
-
-  // toggle.dataset.state = 'light'
-} */

@@ -47,7 +47,11 @@
 
   min-height: 66vh;
   /* o 70vh */
+
+  /* el font size del navegador afecta el ratio */
+  /* aspect-ratio: 2/6; */
 }
+
 
 .card {
   color: var(--body-color);

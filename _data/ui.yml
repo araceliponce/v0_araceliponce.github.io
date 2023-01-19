@@ -1,5 +1,5 @@
 header:
-  proyectos:
+  projects:
     label:
       en: Projects 
       es: Proyectos
@@ -7,7 +7,15 @@ header:
       en: projects
       es: proyectos
 
-  contacto:
+  about:
+    label:
+      en: About 
+      es: Acerca de mí
+    id:
+      en: about
+      es: acercademi
+
+  contact:
     label:
       en: Contact
       es: Contacto
@@ -20,18 +28,65 @@ hero:
     en: Hi, I'm
     es: Hola, yo soy
   role:
-    en: Front end developer
-    es: Desarrolladora front end
+    full:
+      en: Front end developer
+      es: Desarrolladora front end
+    a:
+      en: Front end
+      es: Desarrolladora
+    b:
+      en: developer
+      es: front end
   desc:
-    en: I'm a developer with a passion for building nice and accessible websites
+    en: I enjoy crafting nice websites
     es: #
 
-about:
-  me_as_dev:
-    en: I wish to develop and maintain all sorts of websites from e-commerce to portfolios to blogs with features like toggeable sections, dinamic layouts, event calendars, and so much more.
-    es:
-  my_tools:
-    en: Currently, my main areas of focus revolve around HTML5, CSS3 and Javascript, but I also have a major understanding of many web tehnologies
-  how_to:
+projects:
+  title:
+    en: Selected works
+    es: Mis projectos
+  subtitle: 
     en: 
-    es: 
+    es:
+
+about:
+  title:
+    en: About
+    es: Acerca de mí
+  a:
+    en: Hi again, mi name is Araceli Ponce and I have been coding for about 1 year already!
+    es: Hola  de nuevo, mi nombre es Araceli Ponce y he estado codificando por,semanas más, semanas menos, 1 año!
+  b:
+    en: My areas of focus revolve around HTML5, CSS3, SASS and Javascript, and since I am currently studying and updating this portfolio almost everyday I find myself exploring many different web technologies
+    es: y mis áreas de interés giran en torno a HTML5, CSS3, SASS y Javascript; y, como actualmente estoy estudiando a la vez que actualizo este portafolio casi diariamente, siempre me encuentro investigando muchas y diferentes tecnologias web 
+  c: 
+    en: Below I have listed the ones I know the best.   
+    es: A continuación te he listado aquellas que más conozco. 
+ 
+
+contact:
+  title:
+    en: Contact
+    es: Contacto
+  how_to:
+    en: If you have any questions for me or a web project you want to carry out or improve, you can contact me at 
+    es: Si tienes alguna pregunta para mí o un proyecto web que quieras llevar a cabo o mejorar, puedes contactarme por medio de
+
+footer:
+  copy:
+    en: © Copyright MMXVIII. Designed and coded by Araceli Ponce
+    es: © Copyright MMXVIII. Diseño y maquetación web por Araceli Ponce
+  thanks:
+    en: Special thanks to Josh Comeau, jen simmmons for making the world a better place
+    es:
+  top:
+    en: Go to the top!
+    es: Volver arriba!
+
+btns:
+  demo:
+    en: Check out the demo
+    es: Míralo en vivo
+  code:
+    en: Go to the repository
+    es: Visita el repositorio

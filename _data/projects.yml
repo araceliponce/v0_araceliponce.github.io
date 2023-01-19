@@ -1,7 +1,7 @@
 -
   name: pasiflora
   img: pasiflora1.png
-  link: /#
+  link: #
   repo_name: pasiflora
   subtitle: 
     en: hello pasiflora
@@ -12,8 +12,8 @@
 
 -
   name: araceli ponce github page
-  img: 404.png
-  link: /#
+  img: aps.gif
+  link: #
   repo_name: araceliponce.github.io
   subtitle: 
     en: this very same site
