@@ -7,11 +7,11 @@
     en: My web dev portfolio [Work in progress]
     es: Mi portafolio como desarrolladora web [en desarrollo]. 
   desc: 
-    en: Static bilingual site I created using **Jekyll**, **Liquid**, and of course **HTML5**, **CSS3** and **Javascript**. It's still a work in progress!
+    en: Static bilingual site I created using **Jekyll**, **Liquid**, and of course **HTML5**, **CSS3** and **JavaScript**. It's still a work in progress!
     es: >-
-      Es una página publicada usando el hosting gratuito de Github y el framework **Jekyll**. <br>
-      Se encuentra disponible tanto en inglés como en español, con todo el contenido siendo renderizado a partir de archivos de texto **yaml** y bubles y condicionales de **Liquid**. <br>
-      Asimismo, cuenta con toggles para cambio de tema y activar/pausar animaciones (prueba a cambiar el tema o apagar las animaciones, y recarga la pagina, veras que tus cambios quedan guardados).
+      Es un sitio web publicado usando el hosting gratuito de Github y el framework **Jekyll**. <br>
+      Se encuentra disponible tanto en inglés como en español, con todo el contenido siendo renderizado a partir de archivos de texto **yaml**y bucles y condicionales de **Liquid**. <br>
+      Asimismo, cuenta con toggles para cambio de tema y activar/pausar animaciones (prueba a cambiar el tema o apagar las animaciones, y recarga la página, verás que tus cambios quedan guardados).
 
 -
   name: pasiflora
@@ -24,6 +24,6 @@
   desc: 
     en: Custom multipage ecommerce website. 
     es: >-
-      Un sitio ecommerce para una tienda ficticia de flores y plantas. <br>
-      Al momento de escribir esto, es un catálogo de productos virtual, dentro de unos días posiblemente cuente con un sistema de bolsa de compras usando **JavaScript**<br> 
-      Usa la librería de **Bootstrap** para los estilos y la librería [accessible-toggle](https://github.com/elivz/accessible-toggle) para los menús expandibles accesibles. Asimismo, usa bucles y condicionales en **Liquid** y en **Javascript** para la renderización de los menús y de los artículos en catálogo.   
+      Un sitio e-commerce para una tienda ficticia de plantas. <br>
+      Al momento de escribir esto, es un catálogo de productos virtual, y dentro de unos días posiblemente cuente con un sistema de bolsa de compras usando **JavaScript**<br> 
+      Usa la librería de **Bootstrap** para los estilos y la librería [accessible-toggle](https://github.com/elivz/accessible-toggle) para los menús expandibles accesibles. Asimismo, usa bucles y condicionales en **Liquid** y en **JavaScript** para la renderización de los menús y de los artículos en catálogo.   
