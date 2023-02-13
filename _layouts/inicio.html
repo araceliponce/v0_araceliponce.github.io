@@ -39,7 +39,7 @@
   <div class="radial-gradient"></div>
 
   <header style="height:0 ;" class="relative">
-    <a class="button is-small is-rounded" style="position: fixed; right:2rem;" href="{{site.data.ui.btns.oppositeLang[page.lang]link}}" title="{{site.data.ui.btns.oppositeLang[page.lang]label}}">
+    <a class="button is-small" style="position: fixed; right:2rem;" href="{{site.data.ui.btns.oppositeLang[page.lang]link}}" title="{{site.data.ui.btns.oppositeLang[page.lang]label}}">
       {{site.data.ui.btns.oppositeLang[page.lang].label}}
     </a>
     <ul class="flex-col-wrap-gap1 grid toggles-fixed-list">
@@ -48,11 +48,11 @@
         .toggles-fixed-list {
           position: fixed;
           left: 2rem;
-          min-width: 20ch;
+          min-width: 16ch;
         }
       </style>
       <li>
-        <button type=" button" aria-label="Toggle theme" id="themeToggle" class="button is-small rounded" hidden>
+        <button type="button" aria-label="Toggle theme" id="themeToggle" class="button is-small is-rounded" hidden>
           <span class="hidden-on-dark"> {{site.data.ui.btns.useDark[page.lang]}} </span>
           <span class="hidden-on-nodark"> {{site.data.ui.btns.useLight[page.lang]}} </span>
         </button>
@@ -63,7 +63,7 @@
         </button>
       </li> -->
       <li>
-        <button type="button" class="button is-small" id="animationToggle" role="switch" aria-checked="true" hidden>
+        <button type="button" class="button is-small is-rounded" id="animationToggle" role="switch" aria-checked="true" hidden>
           <span class="hidden-on-motion"> {{site.data.ui.btns.playMotion[page.lang]}} </span>
           <span class="hidden-on-nomotion"> {{site.data.ui.btns.pauseMotion[page.lang]}} </span>
         </button>
@@ -94,10 +94,10 @@
               {% if forloop.last == true %}
               <!-- en caso sea el ultimo item de un bucle for lleva un 'and' o 'y' antes -->
               <span>{{site.data.ui.conectors.and[page.lang]}}</span>
-              <a class="button is-small is-rounded" href="#{{item[1].id}}" title="{{item[1].label}}">{{item[1].label}}</a>
+              <a class="button is-small" href="#{{item[1].id}}" title="{{item[1].label}}">{{item[1].label}}</a>
 
               {% else %}
-              <a class="button is-small is-rounded" href="#{{item[1].id}}" title="{{item[1].label}}">{{item[1].label}}</a>
+              <a class="button is-small" href="#{{item[1].id}}" title="{{item[1].label}}">{{item[1].label}}</a>
               </a>
               {% endif %}
               {%endfor%}
