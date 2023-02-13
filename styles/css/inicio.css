@@ -1,0 +1,1050 @@
+:root {
+  /* --size: clamp(10rem, 1rem + 40vmin, 30rem); */
+  --size: clamp(5rem, 1rem + 10vmin, 10rem);
+  /* --size: 10vmin; */
+  /* --gap: calc(var(--size) / 14); */
+  --gap: 1.5rem;
+
+}
+
+/* fallback para data-dark=true */
+@media (prefers-color-scheme: dark) {
+  :root {}
+}
+
+:root {
+  --font: 'sono', sans-serif !important;
+  --font-headings: 'sono', sans-serif !important;
+
+  --border-radius: .5rem !important;
+  --border-radius-small: .2rem !important;
+
+}
+
+[data-dark=false]:root {
+  --bg: #bfff68;
+  --bg-accent: #ecdcc0;
+
+  --color: #7e22f8;
+  --color-headings: slateblue;
+
+  --color-white: white !important;
+
+  --bg-glass: #b2870629;
+  --border-glass: 1px solid #5c32ee2b;
+
+  --bg1: #ff74be;
+  --color1: #0f2623;
+
+  --bg2: #ffb651;
+  --color2: #e05257;
+
+  --bg3: #443fd0;
+  --color3: #f0d6d2;
+
+
+  --bg4: #3fd07e;
+  --color4: #eaf75b;
+}
+
+[data-dark=true]:root {
+  --bg: navy;
+  --bg-accent: slateblue;
+
+  --color: #fbd1d8;
+  --color-headings: white;
+
+  --color-white: rgba(255, 255, 255, 0.7) !important;
+
+
+  --bg-glass: #ffffff0d;
+  --border-glass: 1px solid #ffffff1a;
+
+
+  --bg1: #f73f84 !important;
+  --color1: #0f2623;
+
+  --bg2: #ffb651;
+  --color2: #e05257;
+
+  --bg3: #443fd0;
+  --color3: #f0d6d2;
+
+  --bg4: #3fd07e;
+  --color4: #eaf75b;
+}
+
+[data-motion=true]:root {
+
+  --cursorHPosition: 50%;
+  --cursorVPosition: 50%;
+
+  /* --animation: .2s; */
+  --playState: running;
+  --transition-speed: .2s;
+
+
+  /* marquee */
+  --duration: 60s;
+  --scroll-start: 0;
+  --scroll-end: calc(-100% - var(--gap));
+}
+
+[data-motion=false]:root {
+  --cursorHPosition: 50%;
+  --cursorVPosition: 50%;
+
+  /* --animation: 0; */
+  --playState: paused;
+  --transition-speed: 0s;
+
+  /* marquee */
+  --duration: 60s;
+  /* deben ser existir y ser iguales aqui tambien o en un :root general */
+  --scroll-start: 0;
+  --scroll-end: calc(-100% - var(--gap));
+}
+
+
+/* RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+
+html {
+  scroll-padding-top: 2rem;
+  transition: all var(--transition-speed) ease;
+}
+
+body {
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  margin-inline: 0;
+  color: var(--color);
+  line-height: 1.6;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  padding-left: 0;
+  list-style: none;
+}
+
+button {
+  border: transparent;
+  font: inherit;
+}
+
+a {
+  color: currentColor;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p:empty {
+  display: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-headings);
+  text-align: center;
+  /* background-color: var(--color-bg-accent); */
+}
+
+h1 {
+  font-size: 5.2rem;
+  line-height: .8;
+}
+
+h1+* {
+  font-size: 2rem;
+}
+
+/* titulos de sections */
+h2[id] {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  color: var(--color-headings);
+}
+
+h2[id]+* {
+  font-size: 1.2rem;
+  max-width: 52ch;
+  margin-inline: auto;
+  color: var(--color);
+
+}
+
+
+
+/* UTILITY CLASSES */
+[data-dark=true] .hidden-on-dark {
+  display: none;
+}
+
+[data-dark=false] .hidden-on-nodark {
+  display: none;
+}
+
+[data-motion=true] .hidden-on-motion {
+  display: none;
+}
+
+[data-motion=false] .hidden-on-nomotion {
+  display: none;
+}
+
+.align-i-center {
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, .3rem);
+}
+
+.grid .button {
+  width: 100%;
+  /* cada .button dentro de .grid obtiene el width 100% si es nieto */
+}
+
+.relative {
+  position: relative;
+  /* padding-inline: 2rem; */
+}
+
+.has-sparkles {
+  position: absolute;
+  top: 0;
+  right: 2rem;
+
+  /* is a flex mayusc line */
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+  text-transform: uppercase;
+  font-size: var(--size-small);
+  /* .75rem */
+}
+
+.wrapper {
+  width: min(52rem, 100%);
+  margin-inline: auto;
+  /* background-color: var(--color-bg-accent); */
+}
+
+.wrapper100vh {
+  min-height: 100vh;
+  /* usa siempre MIN-HEIGHT */
+  outline: 1rem solid currentColor;
+  /* background-color: pink; */
+  padding: var(--padding);
+}
+
+.flex-row {
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--gap, 1rem);
+  /* background: lightseagreen; */
+}
+
+
+
+
+
+.container--text {
+  flex: 1;
+  /* siempre va a crecer mas */
+  margin-inline: auto;
+
+
+  min-height: 60vh;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  min-height: fit-content;
+
+  z-index: 0;
+  /* importante que tenga z-index, no importa el valor */
+
+}
+
+.flex-row .container--text {
+  align-content: center;
+}
+
+
+
+/* NAV */
+.inicio nav {
+  /* background-color: white; */
+  width: fit-content;
+  height: fit-content;
+  margin-left: auto;
+}
+
+header {
+  --size: 3rem;
+  z-index: 7;
+  /* para el btn de en/es */
+}
+
+nav ul {
+  display: flex;
+  gap: var(--gap);
+}
+
+header a {
+  /* height: var(--size); */
+}
+
+
+
+
+/* .has-limited-width {
+  max-width: 43rem;
+} */
+
+.mia {
+  margin-inline: auto;
+}
+
+/* HERO */
+
+.hero {
+  --padding: 2rem 0;
+  /* height: fit-content; no afecta */
+  text-align: start;
+  color: var(--color);
+
+}
+
+.has-inline-padding {
+  padding-inline: 2rem;
+}
+
+.hi+p {
+  /* !bug al usar | markdownify el nuevo p se crea debajo del p.hi */
+  font-size: 3.4rem;
+  line-height: .8;
+  margin-bottom: .5em;
+  color: var(--color-headings);
+}
+
+p+p {
+  margin-top: .3em !important;
+}
+
+p em,
+p strong {
+  color: inherit;
+  font-style: inherit;
+}
+
+
+
+/* FRASE */
+
+#fraseIs {
+  position: absolute;
+  bottom: -4rem;
+  background-color: blue;
+  min-height: 4ex;
+
+  font-size: clamp(1rem, 5vw, 2rem);
+  line-height: 1.2;
+  -webkit-animation: 5s fade-in-out infinite;
+  animation: 5s fade-in-out infinite;
+}
+
+
+@keyframes fade-in-out {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  15%,
+  85% {
+    opacity: 1;
+  }
+}
+
+
+/* MARQUEE */
+
+/* .marquee ahora define el min height o min width depedendiendo, y los items usan 100%  */
+.marquee {
+  display: flex;
+  overflow-x: hidden;
+  /* padding: 2rem 0; NO PADDINGS*/
+  /* para marquee horizontal */
+  user-select: none;
+  gap: var(--gap);
+  mask-image: linear-gradient(var(--mask-direction, to right),
+      hsl(0 0% 0% / 0),
+      hsl(0 0% 0% / 1) 20%,
+      hsl(0 0% 0% / 1) 80%,
+      hsl(0 0% 0% / 0));
+  min-height: var(--size);
+}
+
+.marquee-list {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: var(--gap);
+  min-width: 0;
+  /* minwidthaqui o establecer flexproperties of grow en hijos */
+  animation: scroll-x var(--duration) linear infinite;
+  animation-play-state: var(--playState);
+}
+
+
+/* this was to stop the marquee on hover
+ .marquee:hover .marquee-list,
+.marquee:focus .marquee-list {
+  animation-play-state: paused;
+} */
+
+
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-list {
+    animation-play-state: paused;
+  }
+}
+
+.marquee--vertical {
+  --mask-direction: to bottom;
+  overflow-y: hidden;
+  /* padding: 0 2rem; */
+  min-width: var(--size);
+  flex-shrink: 0;
+
+}
+
+.marquee--vertical,
+.marquee--vertical .marquee-list {
+  flex-direction: column;
+}
+
+.marquee--vertical .marquee-list {
+  animation-name: scroll-y;
+}
+
+.marquee--reverse .marquee-list {
+  animation-direction: reverse;
+  animation-delay: -3s;
+}
+
+@keyframes scroll-x {
+  from {
+    transform: translateX(var(--scroll-start));
+  }
+
+  to {
+    transform: translateX(var(--scroll-end));
+  }
+}
+
+@keyframes scroll-y {
+  from {
+    transform: translateY(var(--scroll-start));
+  }
+
+  to {
+    transform: translateY(var(--scroll-end));
+  }
+}
+
+.marquee-li {
+  display: grid;
+  place-items: center;
+  fill: var(--color);
+  border-radius: .5rem;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  /* glass  style */
+  border: var(--border-glass);
+  border-radius: .3rem;
+  background: var(--bg-glass);
+
+  width: 100%;
+}
+
+.glass {
+  border: var(--border-glass);
+  border-radius: .3rem;
+  background: var(--bg-glass);
+}
+
+.li-inner {
+  min-width: var(--size);
+  padding: calc(var(--size) / 7) calc(var(--size) / 5);
+  /* tres: top sides bottom */
+  /* background-color: pink; */
+}
+
+.li-inner>* {
+  display: block;
+  margin-inline: auto;
+}
+
+/* .marquee-li item scales on hover, important set different overflow x and y */
+.marquee-li:hover {
+  scale: 1.1;
+}
+
+
+
+.marquee--vertical svg {
+  aspect-ratio: 1;
+  width: calc(var(--size) / 1.5);
+  padding: calc(var(--size) / 6);
+}
+
+/* Parent wrapper */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  margin: auto;
+  max-width: 100%;
+  /* 100% de su contenedor */
+}
+
+
+.wrapper--vertical {
+  flex-direction: row;
+  height: 100vh;
+}
+
+
+/* BG STYLES */
+.noise-container {
+  position: fixed;
+  inset: 0;
+  z-index: 52;
+  pointer-events: none;
+
+  opacity: .5;
+  mix-blend-mode: soft-light;
+  width: 100%;
+  height: 100vh;
+}
+
+.gradient {
+  mix-blend-mode: screen;
+}
+
+/* color3   y bg3   se ve mejor */
+.radial-gradient {
+  position: fixed;
+  inset: 0;
+  /* height: 100vmax;
+  width: 100vmax; */
+  height: 100%;
+  width: 100%;
+
+  /* fallback if gradient doesnt work */
+  background: var(--bg);
+  /* fallback if js doesnt work */
+  background: radial-gradient(at center, var(--bg-accent), var(--bg));
+
+  background: radial-gradient(at var(--cursorHPosition) var(--cursorVPosition), var(--bg-accent), var(--bg));
+  /* z-index: -1; */
+  background-attachment: fixed;
+
+  background: var(--bg);
+}
+
+
+
+/* TOGGLE STYLES */
+
+
+@media screen and(min-width:30rem) {}
+
+/* o .header */
+.toggles {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 99;
+  display: flex;
+  gap: 1rem;
+
+  /* display: grid; grid para volverlos 1 columna en lugar de 1 fila*/
+}
+
+/* o .nav */
+.not-toggles {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 99;
+  display: flex;
+  gap: 1rem;
+
+}
+
+/* sin usar */
+.toggle {
+  display: block;
+  position: relative;
+  /* position: fixed;
+  top: 1rem;
+  left: 1rem; */
+  width: var(--size);
+  height: var(--size);
+  font: inherit;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 50%;
+  color: var(--color2);
+  background-color: var(--bg2);
+  z-index: 1;
+}
+
+.toggle:focus-visible {
+  box-shadow: 0 0 0 2px var(--color);
+}
+
+.toggle svg {
+  --size: 2.5rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--size);
+  height: var(--size);
+  fill: currentcolor;
+  transform: translate(-50%, -50%);
+  transition: transform 300ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.toggle--vertical svg {
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+
+/* KEYFRAMES */
+
+@keyframes fade {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+
+img {
+  max-width: 100%;
+  /* height: auto; */
+}
+
+
+
+/*  */
+.flex-col-wrap-gap1,
+.flex-row-wrap-gap1 {
+  --gap: .3rem;
+  display: flex;
+  gap: var(--gap);
+}
+
+.flex-row-wrap-gap1 {
+  flex-flow: row wrap;
+}
+
+.flex-col-wrap-gap1 {
+  flex-flow: column wrap;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+/* PROJECTS SECTION */
+
+.card p {
+  /* color: var(--color); ??cuando */
+}
+
+.card strong {
+  display: inline-block;
+
+  padding: 0 2ex;
+  /* no demasiado padding */
+
+  background: var(--bg-glass);
+  border-radius: .1ex;
+  border-radius: .9em;
+  border: 1px solid var(--color2);
+}
+
+.card .button:nth-child(1) {
+  background-color: var(--bg2);
+}
+
+.card .button:nth-child(2) {
+  background-color: var(--bg4);
+}
+
+/* SKILLS SECTION */
+
+.skills {
+  --gap: 1.5rem;
+  justify-content: center;
+
+  max-width: var(--ch-limit);
+  margin-inline: auto;
+}
+
+.skills h3 {
+  margin-bottom: 1rem;
+  color: var(--color-headings);
+}
+
+.tools {
+  --gap: 3rem;
+}
+
+/* .tools ul {
+  --gap: 1rem;
+  justify-content: center;
+} */
+
+
+.tools>li>ul {
+  --gap: 1.2rem;
+  justify-content: center;
+}
+
+/* son los items */
+.tools ul>li {
+
+  /* background-color: pink; */
+  text-align: center;
+  /* background-color: var(--bg-glass); */
+  /* border: var(--border-glass); */
+  border-radius: var(--border-radius, .6rem);
+  padding: 1rem 1.2rem .5rem;
+  /* este padding ayuda a que se vea balanceado, el svg con el texto debajo */
+
+  /* define el width del svg de dentro */
+  width: 7rem;
+  transition: all var(--transition-speed) ease;
+}
+
+.tools ul>li:hover {
+  /* scale: 1.2; */
+}
+
+.tools svg {
+  /* width: 2rem; */
+  width: 100%;
+  aspect-ratio: 1;
+  margin-inline: auto;
+  display: block;
+  /* important */
+}
+
+
+svg {
+  aspect-ratio: 1;
+  /* todos mis svgs son iconos,IMPORTANTE .If using defs and symbols for svgs, you must provide specific sizing to the <svg> element https://stackoverflow.com/questions/52166338/cannot-change-svg-use-icon-size-when-linked-to-symbol */
+}
+
+
+.tools svg+small {
+  text-align: center;
+  color: var(--color);
+}
+
+/* glow */
+.round {
+  background-color: var(--bg-accent);
+  border-radius: .2rem;
+  /* padding: 1rem; */
+  outline: .2rem solid;
+}
+
+.tools-wrapper {
+  --icon-width: min(3rem, 25%);
+
+  display: flex;
+  flex-flow: row wrap;
+  position: static;
+  pointer-events: auto;
+  width: 100%;
+  gap: 1.5rem;
+
+  height: 100%;
+}
+
+.tools-wrapper>li {
+
+  width: var(--icon-width);
+  height: auto;
+  position: static;
+  transform: none !important;
+}
+
+.has-glow {
+  --shadow-x-pos: 0;
+  --shadow-y-pos: 1.5rem;
+  --shadow-blur: 1rem;
+
+  color: transparent;
+  filter: drop-shadow(var(--shadow1) 0 1.3rem 1rem) drop-shadow(var(--shadow2) 0 .7rem .3rem);
+}
+
+
+.has-glow:hover {
+  outline-color: var(--shadow1, lightgreen);
+  /* border usa currentColor */
+}
+
+.tools>li {
+  --shadow1: rgba(137, 235, 161, 0.24);
+  --shadow2: rgba(168, 193, 241, 0.32);
+}
+
+
+[data-dark=true] .tools>li {
+  --shadow1: rgba(71, 145, 255, 0.3);
+  --shadow2: rgba(0, 71, 255, 0.2);
+}
+
+
+.tools-wrapper svg {
+  aspect-ratio: 1;
+  /* important */
+}
+
+
+
+.is-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--gap);
+}
+
+/* porque usamos sublistas que no son hijos directos */
+.is-grid ul {
+  display: grid;
+  gap: var(--gap);
+  /* background-color: pink; */
+}
+
+.grid-col-span-all,
+.tools .title {
+  /* background-color: pink; */
+  grid-column: span 2;
+}
+
+@media (min-width: 30rem) {
+  .is-grid {
+    /* background-color: wheat; */
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .grid-col-span-all,
+  .tools .title {
+    /* background-color: pink; */
+    grid-column: span 3;
+
+    display: grid;
+    /* para usarlo de contenedor grid*/
+  }
+
+}
+
+
+section {
+  /* min-height: 100vh; */
+  padding: 2rem;
+}
+
+
+/* info SECTION */
+
+.info {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+address {
+  color: var(--color);
+}
+
+.info svg {
+  width: 3rem;
+  fill: var(--color2);
+}
+
+
+/* FOOTER */
+footer {
+  margin-top: 2rem;
+  padding: 2rem;
+  color: var(--color);
+}
+
+.p-is-flex1 p {
+  flex: 1;
+}
+
+
+
+/* animations */
+
+@-webkit-keyframes flip {
+
+  0%,
+  80% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg)
+  }
+}
+
+@keyframes flip {
+
+  0%,
+  80% {
+    -webkit-transform: rotateY(360deg);
+    transform: rotateY(360deg)
+  }
+}
+
+
+/* 
+toggles docs https://toggles.dev/docs/html
+
+css from https://cdn.jsdelivr.net/npm/theme-toggles@4.10.1/css/lightbulb.min.css
+
+*/
+
+
+
+:root {
+  --easing: ease-out;
+
+  --radius-small: .2rem;
+  --radius: .3rem;
+  --radius-large: .6rem;
+  --radius-rounded: 100vh;
+
+  --font-small: 0.75rem;
+  --font-normal: 1rem;
+  --font-medium: 1.25rem;
+  --font-large: 1.5rem;
+}
+
+.container {
+  flex-grow: 1;
+  margin: 0 auto;
+  position: relative;
+  /* width: auto; */
+}
+
+@media screen and (min-width: 1024px) {
+  .container.is-limited {
+    /* max-width: 960px; */
+    max-width: 42rem;
+  }
+}
+
+
+.button {
+
+  --button-color: black;
+  --button-background-color: pink;
+  --button-family: false;
+  --button-font-size: var(--font-medium);
+  --button-border-color: transparent;
+  --button-border-radius: .5em;
+
+
+  background-color: var(--button-background-color);
+  color: var(--button-color);
+
+  transition: background-color var(--transition-speed) var(--easing);
+  transition: color var(--transition-speed) var(--easing);
+
+  border: .1rem solid var(--button-border-color);
+  border-radius: var(--button-border-radius);
+
+  cursor: pointer;
+  font-size: var(--button-font-size);
+
+  padding: .3em .5em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.button strong {
+  color: inherit;
+}
+
+.button:hover {
+  color: rgb(37, 37, 37);
+  border-color: lightgreen;
+}
+
+.button:focus {
+  border-color: cornflowerblue;
+  color: hsl(0deg, 0%, 21%);
+}
+
+.button:focus:not(:active) {
+  box-shadow: 0 0 0 0.125em rgba(10, 10, 10, 0.25);
+  ;
+}
+
+.button:active {
+  border-color: var(--button-active-border-color);
+  color: var(--button-active-color);
+}
+
+
+.button.is-small {
+  --button-font-size: var(--font-small);
+}
+
+.button.is-rounded {
+  --button-border-radius: var(--radius-rounded);
+}

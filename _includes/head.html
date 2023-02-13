@@ -11,17 +11,14 @@
     // Render blocking JS
   </script>
 
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/113866541">
+
   <!-- CSS -->
   <link rel="stylesheet" href="{{site.url}}/styles/index.css">
+  <!-- <link rel="stylesheet" href="{{site.url}}/styles/{{page.layout}}.css"> -->
 
   <!-- JS -->
   <script src="{{site.url}}/scripts/index.js" defer></script>
-
-  <!-- ICONS -->
-  <!-- <link rel="apple-touch-icon" sizes="180x180" href="{{site.url}}/imgs/icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{site.url}}/imgs/icons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{site.url}}/imgs/icons/favicon-16x16.png">
-  <link rel="manifest" href="{{site.url}}/imgs/icons/site.webmanifest"> -->
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
@@ -39,7 +36,7 @@
   {% endfor %}
   {% endif %}
 
-  {% elsif page.layout =='home' %}
+  {% elsif page.layout =='inicio' %}
   {% if page.lang == 'es' %}
   <link rel="alternate" hreflang="en" href="{{ site.url }}/en" />
   {% else %}
@@ -58,7 +55,5 @@
   <!-- FONTS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Serif+Display:ital@0;1&family=Fira+Sans:ital,wght@0,400;0,600;1,400;1,600&family=Manrope:wght@200;400;600&family=Orelega+One&family=Red+Hat+Text:wght@300;400;600&family=Sono:wght@400;600&display=swap" rel="stylesheet">
-
-
+  <link href="https://fonts.googleapis.com/css2?family=Sono:wght@400;600&display=swap" rel="stylesheet">
 </head>

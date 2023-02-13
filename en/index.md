@@ -1,4 +1,4 @@
 ---
-layout: home
+layout: inicio
 lang: en
 ---

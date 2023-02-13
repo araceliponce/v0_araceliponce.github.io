@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Fork of Fork: Playing with CSS Grid <code>auto-fit</code> and <code>grid-auto-flow</code></h1>
+
+  <p>
+    Based on this <a href="https://codepen.io/aardrian/pen/KKvVrxM" target="_blank" rel="noopener noreferrer">codepen made by Adrian Roselli</a>, which is forked from <a href="https://codepen.io/basherkev/pen/rNwpwgP">this example</a> used in the CSS-Tricks article <cite><a href="https://css-tricks.com/expandable-sections-within-a-css-grid/">Expandable Sections Within a CSS Grid</a></cite>.
+  </p>
+
+  <p>These are the changes I made:</p>
+
+  <ul>
+    <li>Reenginereed the javascript code</li>
+    <li>Added again the close buttons in each expanded area</li>
+    <li>Added autofocus on the close button when the element is expanded so the page scrolls and we can see all its contents</li>
+    <li>Now there are 3 ways to close the elements, clicking the close button, pressing Esc and clicking the toggle button</li>
+    <li>Added a 2rem scroll-padding-bottom and a smooth scroll-behavior</li>
+  </ul>
+
+
+  <p> Multiple cards can be expanded at the same time </p>
+  <p>You can navigate through buttons and links on any website using shift (to move forward) or shift + tab (to move backward). And press Enter to click the focused element.</p>
+
+  <div>
+    <ul class="grid">
+      <li>
+        <p>1</p>
+      </li>
+      <li>
+        <p>2</p>
+        <button type="button" id="btnDisc02" aria-expanded="false" aria-controls="Disclosed02">Quick view</button>
+      </li>
+      <li class="fullwidth is-hidden" id="Disclosed02">
+        <p>fullwidth 2</p>
+        <p>This grid item needs to stretch the full width of the page, and force other grid items to reflow around it, whilst remaining "visually connected" to the preceeding grid item.</p>
+        <p>Test <a href="#">inline link</a>.</p>
+        <button type="button" data-close>Close this</button>
+      </li>
+      <li>
+        <p>3</p>
+      </li>
+      <li>
+        <p>4</p>
+        <button type="button" id="btnDisc04" aria-expanded="false" aria-controls="Disclosed04">Quick view</button>
+      </li>
+      <li class="fullwidth is-hidden" id="Disclosed04">
+        <p>fullwidth 4</p>
+        <p>This grid item needs to stretch the full width of the page, and force other grid items to reflow around it, whilst remaining "visually connected" to the preceeding grid item.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi temporibus dolore quo eaque ipsum voluptatem deserunt dolorum laborum cum id labore deleniti voluptas, quod sed, molestiae ab aspernatur omnis eos.</p>
+        <p>Test <a href="#">inline link</a>.</p>
+        <button type="button" data-close>Close this</button>
+      </li>
+      <li>
+        <p>5</p>
+        <button type="button" id="btnDisc05" aria-expanded="false" aria-controls="Disclosed05">Quick view</button>
+      </li>
+      <li class="fullwidth is-hidden" id="Disclosed05">
+        <p>fullwidth 5</p>
+        <p>This grid item needs to stretch the full width of the page, and force other grid items to reflow around it, whilst remaining "visually connected" to the preceeding grid item.</p>
+        <p>Test <a href="#">inline link</a>.</p>
+        <button type="button" data-close>Close this</button>
+      </li>
+      <li>
+        <p>6</p>
+      </li>
+      <li>
+        <p>7</p>
+      </li>
+      <li>
+        <p>8</p>
+      </li>
+    </ul>
+  </div>
+
+  <style>
+    * {
+      scroll-behavior: smooth;
+      scroll-padding-bottom: 2rem;
+      /* so the expanded element is separated 2rem from the bottom of screen */
+    }
+
+    ul[class] {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul[class] li {
+      list-style: none;
+    }
+
+    ul[class] li>* {
+      margin: 1rem;
+    }
+
+    :focus {
+      box-shadow: 0 0 0 0.25rem rebeccapurple;
+      outline: 0;
+    }
+
+    /* [1] 'auto-fit' grid columns, so no media queries required. */
+    /* [2] 'dense' packing fills in holes earlier in the grid. */
+    .grid {
+      display: grid;
+      gap: 1rem;
+      grid-auto-flow: dense;
+      /* [2] */
+      grid-template-columns: repeat(auto-fit, 20rem);
+      /* [1] */
+      justify-content: center;
+      /*  AAR: Will not work well with expanded data, so do not use  */
+      /*     grid-auto-rows: 7rem; */
+    }
+
+    .grid>* {
+      align-items: flex-start;
+      background: lightslategray;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      /*  AAR: added so all items are same height (try with two cols)  */
+      min-height: 7rem;
+    }
+
+    /* [3] Make fullwidth card span all grid columns. */
+    .fullwidth {
+      grid-column: 1 / -1;
+    }
+
+    .is-hidden {
+      display: none;
+    }
+
+    .fullwidth,
+    .is-selected {
+      background: cornflowerblue;
+    }
+  </style>
+
+  <script>
+    const allToggleButtons = document.querySelectorAll('[aria-expanded]');
+    allToggleButtons.forEach(btn => {
+      let btnId = btn.getAttribute('id');
+      btn.addEventListener('click', () => {
+
+        let controlledElId = btn.getAttribute("aria-controls");
+        let controlledEl = document.getElementById(controlledElId);
+        let btnIsExpanded = btn.getAttribute('aria-expanded') == 'true' //boolean
+        console.log(btnIsExpanded);
+        let closeButton = controlledEl.querySelector('[data-close]'); //puede o puede no existir en el controlledEl
+
+        toggleEl();
+
+        function toggleEl() {
+          if (!btnIsExpanded) {
+            console.log(btnIsExpanded, 'a cerrar')
+            btn.setAttribute("aria-expanded", "true");
+            controlledEl.classList.remove('is-hidden');
+          } else {
+            console.log(btnIsExpanded, 'a abrir')
+            btn.setAttribute("aria-expanded", "false");
+            controlledEl.classList.add('is-hidden');
+          }
+        };
+
+        //controlledEl closes on Escape
+        controlledEl.addEventListener('keydown', (e) => {
+          console.log(e.code)
+          if (e.code == 'Escape') {
+            btn.setAttribute("aria-expanded", "false");
+            controlledEl.classList.add('is-hidden');
+          }
+        });
+
+        //closes when clicking the closeButton too
+        if (closeButton) {
+          closeButton.focus(); //usamos focus en closeBtn para hacer scroll tambien
+          closeButton.addEventListener('click', () => {
+            btn.setAttribute("aria-expanded", "false");
+            controlledEl.classList.add('is-hidden');
+          })
+        };
+
+      })
+    })
+
+  </script>
+</body>
+
+</html>

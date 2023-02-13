@@ -1,92 +1,162 @@
+nav: 
+  en:
+    projects:
+      label: My 2023 projects
+      id: projects
+    skills:
+      label: My tools/methods
+      id: skills
+    info:
+      label: My contact info
+      id: info
+  es:
+    projects:
+      label: Mis proyectos
+      id: proyectos
+    skills:
+      label: Mis herramientas
+      id: herramientas
+    info:
+      label: Mi info de contacto
+      id: info
+
 header:
-  projects:
-    label:
-      en: Projects 
-      es: Proyectos
-    id:
-      en: projects
-      es: proyectos
 
-  about:
-    label:
-      en: About 
-      es: Acerca de mí
-    id:
-      en: about
-      es: acercademi
-
-  contact:
-    label:
-      en: Contact
-      es: Contacto
-    id:
-      en: contact
-      es: contacto
+conectors:
+  and:
+    en: 'and'
+    es: 'y'
 
 hero:
-  hello:
-    en: Hi, I'm
-    es: Hola, yo soy
-  role:
-    full:
-      en: Front end developer
-      es: Desarrolladora front end
-    a:
-      en: Front end
-      es: Desarrolladora
-    b:
-      en: developer
-      es: front end
-  desc:
-    en: I enjoy crafting nice websites
-    es: #
+  en:
+    hi: Hello, I'm _**ARACELI** **PONCE**_
+    after-hi: I am  a front end developer & web explorer. Always looking to create accessible, performant and unique websites
+    after-after-hi: 'Here i present you:'
+
+  es:
+    hi: Hola, yo soy _**ARACELI** **PONCE**_
+    after-hi: Desarrolladora front end. Siempre en la búsqueda de crear webs inclusivas, funcionales y únicas
+    after-after-hi: 'Aqui podrás ver:'
 
 projects:
-  title:
-    en: Selected works
-    es: Mis projectos
-  subtitle: 
-    en: 
-    es:
+  en:
+    title: Selected works
+    line1: Here are some of my recent projects that I have worked on
+  es:
+    title: Mis proyectos
+    line1: 
 
-about:
-  title:
-    en: About
-    es: Acerca de mí
-  a:
-    en: Hi again, mi name is Araceli Ponce and I have been coding for about 1 year already!
-    es: Hola  de nuevo, mi nombre es Araceli Ponce y he estado codificando por,semanas más, semanas menos, 1 año!
-  b:
-    en: My areas of focus revolve around HTML5, CSS3, SASS and Javascript, and since I am currently studying and updating this portfolio almost everyday I find myself exploring many different web technologies
-    es: y mis áreas de interés giran en torno a HTML5, CSS3, SASS y Javascript; y, como actualmente estoy estudiando a la vez que actualizo este portafolio casi diariamente, siempre me encuentro investigando muchas y diferentes tecnologias web 
-  c: 
-    en: Below I have listed the ones I know the best.   
-    es: A continuación te he listado aquellas que más conozco. 
+
+skills:
+  en:
+    title: my tools
+    desc: >-
+      Hi again! <br>
+      My areas of focus are HTML5, CSS3, SASS and Javascript, but I find myself exploring different web technologies everyday. So, below I have listed the ones I know the best.
+  es:
+    title: mis herramientas
+    desc: >-
+      Una breve lista de las herramientas que más conozco y he usado 
  
-
-contact:
-  title:
-    en: Contact
-    es: Contacto
-  how_to:
-    en: If you have any questions for me or a web project you want to carry out or improve, you can contact me at 
-    es: Si tienes alguna pregunta para mí o un proyecto web que quieras llevar a cabo o mejorar, puedes contactarme por medio de
+info:
+  en:
+    title: Hi again
+    line1: If you have any questions, or a web project you want to carry out/improve, you can contact me
+  es: 
+    title: Hola de nuevo
+    line1: 'Si tienes alguna pregunta o piensas que podría ser la persona ideal para un puesto de trabajo que conoces, envíame un correo. te responderé en breve.'
 
 footer:
-  copy:
-    en: © Copyright MMXVIII. Designed and coded by Araceli Ponce
-    es: © Copyright MMXVIII. Diseño y maquetación web por Araceli Ponce
-  thanks:
-    en: Special thanks to Josh Comeau, jen simmmons for making the world a better place
+  en:
+    copy: © Copyright MMXVIII. Designed and coded by [araceliponce](https://github.com/araceliponce).
+  es:
+    copy: © Copyright MMXVIII. Diseño y maquetación web por [araceliponce](https://github.com/araceliponce). 
+
+btns:
+  useDark:
+    en: Change to night mode
+    es: Usar tema noche
+  useLight:
+    en: Change to day mode
+    es: Usar tema día
+  pauseMotion:
+    en: Disable animations
+    es: Desactivar animaciones
+  playMotion:
+    en: Play animations
+    es: Activar animaciones
+
+  oppositeLang:
+    en:
+      link: /
+      label: Spanish version
     es:
+      link: /en
+      label: Versión en inglés
+
   top:
     en: Go to the top!
     es: Volver arriba!
 
-btns:
+
+links:
+  email:
+    en: Github de Araceli Ponce
+    es: Email de Araceli Ponce
+  github:
+    en: Araceli Ponce's github
+    email: Araceli Ponce's email
   demo:
     en: Check out the demo
-    es: Míralo en vivo
+    es: Mira el sitio web
   code:
     en: Go to the repository
-    es: Visita el repositorio
+    es: Visita el código
+
+
+
+tools:
+  en:
+    Languages:
+      - HTML5
+      - CSS3
+      - Sass
+      - JavaScript
+      - JQuery
+      - TypeScript
+      - Liquid
+    Dev Frameworks:
+      - Angular
+      - Jekyll
+    UI Frameworks & tools:
+      - Bootstrap
+      - Bulma
+      - Figma
+    Database: 
+      - MongoDB
+      - Supabase
+      - Firebase
+    Version control:
+      - Git
+  es:
+    Lenguajes:
+      - HTML5
+      - CSS3
+      - Sass
+      - JavaScript
+      - JQuery
+      - TypeScript
+      - Liquid
+    Frameworks de desarrollo:
+      - Angular
+      - Jekyll
+    Frameworks y herramientas UI:
+      - Bootstrap
+      - Bulma
+      - Figma
+    Bases de datos: 
+      - MongoDB
+      - Supabase
+      - Firebase
+    Gestion de versiones:
+      - Git

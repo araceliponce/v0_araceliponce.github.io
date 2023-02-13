@@ -1,23 +1,29 @@
 -
-  name: pasiflora
-  img: pasiflora1.png
-  link: #
-  repo_name: pasiflora
-  subtitle: 
-    en: hello pasiflora
-    es: Hola pasiflora
-  desc: 
-    en: Custom multipage ecommerce website. It features 
-    es: Sitio ecommerce de varias páginas, desarrollado usando **Bootstrap**, **CSS3**, **Liquid**, **Jekyll** y varios archivos **YAML** para el manejo sencillo de la navegacion y articulos en el catalogo
-
--
-  name: araceli ponce github page
+  name: Portafolio personal
   img: aps.gif
   link: #
   repo_name: araceliponce.github.io
   subtitle: 
-    en: this very same site
-    es: estas aquí
+    en: My web dev portfolio [Work in progress]
+    es: Mi portafolio como desarrolladora web [en desarrollo]. 
   desc: 
-    en: Static bilingual site I created using **Jekyll**, **Bulma**, **Liquid**, and of course **HTML5**, **CSS3** and **Javascript**. It's still a work in progress!
-    es: Sitio estático bilingue que creé usando **Jekyll**, **Bulma**, **Liquid**, y, claro está **HTML5**, **CSS3** y **Javascript**. Aún es un proyecto en desarrollo!
+    en: Static bilingual site I created using **Jekyll**, **Liquid**, and of course **HTML5**, **CSS3** and **Javascript**. It's still a work in progress!
+    es: >-
+      Es una página publicada usando el hosting gratuito de Github y el framework **Jekyll**. <br>
+      Se encuentra disponible tanto en inglés como en español, con todo el contenido siendo renderizado a partir de archivos de texto **yaml** y bubles y condicionales de **Liquid**. <br>
+      Asimismo, cuenta con toggles para cambio de tema y activar/pausar animaciones (prueba a cambiar el tema o apagar las animaciones, y recarga la pagina, veras que tus cambios quedan guardados).
+
+-
+  name: pasiflora
+  img: pasiflora1.png
+  link: https://araceliponce.github.io/pasiflora/catalogo
+  repo_name: pasiflora
+  subtitle: 
+    en: E-commerce website [Work in progress]
+    es: Sitio ecommerce hecho con **Bootstrap**, **CSS3**, **Liquid** y **Jekyll** [En desarrollo]
+  desc: 
+    en: Custom multipage ecommerce website. 
+    es: >-
+      Un sitio ecommerce para una tienda ficticia de flores y plantas. <br>
+      Al momento de escribir esto, es un catálogo de productos virtual, dentro de unos días posiblemente cuente con un sistema de bolsa de compras usando **JavaScript**<br> 
+      Usa la librería de **Bootstrap** para los estilos y la librería [accessible-toggle](https://github.com/elivz/accessible-toggle) para los menús expandibles accesibles. Asimismo, usa bucles y condicionales en **Liquid** y en **Javascript** para la renderización de los menús y de los artículos en catálogo.   

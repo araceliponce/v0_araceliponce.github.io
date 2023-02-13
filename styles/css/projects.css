@@ -1,158 +1,187 @@
-.projects {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: column wrap;
-  flex-flow: column wrap;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+.projects li:first-child {
+  --project-clr1: var(--bg1);
+  --project-clr2: var(--bg2);
+
 }
 
-.projects li {
-  /* min-height: 90vh; en lugar de colocar un min height, un card+card*/
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+.projects li:nth-child(2) {
+  --project-clr1: var(--bg3);
+  --project-clr2: var(--bg4);
 
-  min-width: 100%;
-  position: relative;
 }
 
-.projects li+li {
-  margin-top: 5vh;
-  /* background-color: pink; */
+.cards {
+  --padding: 1.5rem;
+  --radius: .5rem;
+  padding: var(--padding);
 }
 
-@media screen and (min-width: 40rem) {
-  .projects li+li {
-    margin-top: 30vh;
-    /* background-color: orange; */
+.flip .card {
+  width: min(30rem, 100%);
+
+  /* margin-bottom: 20%;  ???*/
+  margin-inline: auto;
+
+  background: var(--project-clr1);
+  background: linear-gradient(var(--project-clr1), var(--project-clr2));
+  padding: var(--padding);
+  border-radius: var(--radius);
+  /* luego le quitamos el padding y el bg para colocarlo en ambas caras */
+}
+
+.flip li+li {
+  margin-top: 4rem;
+  /* en lugar de ese 20% despues de cada .card */
+}
+
+.flip li {
+  background: transparent;
+}
+
+.flip .card-front,
+.flip .card-back {
+  display: grid;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  gap: 2ch;
+}
+
+
+/* @media(hover:hover) { */
+
+@media screen and (min-width:36rem) {
+  .flip li {
+    background: transparent;
+  }
+
+  .flip .card {
+    width: min(40rem, 100%);
+    height: min(28rem, 80vh);
+    -webkit-perspective: 2000px;
+    perspective: 2000px;
+    /* subtle 3d effect, 1000px is ok, 10px is too much */
+
+    padding: 0;
+    background: transparent;
+  }
+
+  /* relative container */
+  .flip .card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    -webkit-transition: -webkit-transform 0.8s;
+    transition: -webkit-transform 0.8s;
+    -o-transition: transform 0.8s;
+    transition: transform 0.8s;
+    transition: transform 0.8s, -webkit-transform 0.8s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+  }
+
+  /* horizontal flip on hover of card, maybe li */
+  /* .flip .card:hover .card-inner {
+    transform: rotateY(-180deg);
+  } */
+  .card:hover .card-front,
+  .card:focus-visible .card-front {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+  }
+
+  .card-back,
+  .card:hover .card-back {
+    /* background: var(--project-clr2);
+    background: linear-gradient(var(--project-clr1) 62%, var(--project-clr2)); sinceramente no tengo idea porque no funciona con solo e selector .card-back */
+  }
+
+  .card:hover .card-back,
+  .card:focus-visible .card-back {
+    background: var(--project-clr2);
+    background: linear-gradient(var(--project-clr1) 62%, var(--project-clr2));
+
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+  }
+
+  /* both front and back are absolute */
+  .flip .card-front,
+  .flip .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: all var(--transition-speed) ease;
+
+
+
+    padding: var(--padding);
+    border-radius: var(--radius);
+    box-shadow: rgba(149, 157, 165, 0.3) 0px 12px 48px 0px;
+
+  }
+
+  .flip .card-front {
+    background: var(--project-clr1);
+    color: var(--color-white);
+    /* ya es grid y al centro pero */
+    display: grid;
+    align-content: center;
+    /* ya no align space between */
+  }
+
+
+
+  .flip .card-back {
+    background: var(--project-clr1);
+    color: var(--color-white);
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
   }
 }
 
-.card,
-.card__side {
-  /* width: min(86vw, 40rem); */
-  width: min(100%, 40rem);
-  /* 100% can be used but the parents and their parents... have to have a set width (ie 100% ) or one grandparent can be .relative*/
 
-  min-height: 66vh;
-  /* o 70vh */
-
-  /* el font size del navegador afecta el ratio */
-  /* aspect-ratio: 2/6; */
-}
-
-
-.card {
-  color: var(--body-color);
-  line-height: 1.3;
-
-  -webkit-perspective: 100rem;
-  perspective: 100rem;
-  /* height: 60vh; */
-  position: relative;
-  background-color: var(--body-background-color);
-  /* same as body bg or */
-  background-color: transparent;
-
-  margin-inline: auto;
-  /* el padding del ul parecia que lo centraba pero no */
-}
-
-
-.card__side {
-  /* a parecer necesita un width, no un min-width o max-width*/
-  -webkit-transition: all 0.8s ease;
-  -o-transition: all 0.8s ease;
-  transition: all 0.8s ease;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: auto;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border-radius: 3px;
-  overflow: hidden;
-  -webkit-box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
-}
-
-.card__side--front {
-  background-color: var(--card-bg, #1c1c1c);
-  /* display: grid; */
-  /* para centrar */
-
-  padding: 1rem;
-}
-
-.card__side--back {
-  -webkit-transform: rotateY(180deg);
-  transform: rotateY(180deg);
-  background-color: var(--card-bg, #1c1c1c);
-
-  padding: 3rem;
-}
-
-.card__side--back>p {
-  margin-bottom: 1rem;
-  /* separacion entre p y btns */
-}
-
-.card:hover .card__side--front,
-.card:focus-visible .card__side--front {
-  -webkit-transform: rotateY(-180deg);
-  transform: rotateY(-180deg);
-}
-
-.card:hover .card__side--back,
-.card:focus-visible .card__side--back {
-  -webkit-transform: rotateY(0deg);
-  transform: rotateY(0deg);
-}
-
-.card strong {
-  display: inline-block;
-  background-color: gray;
-  padding: .2rem;
-
-  background-color: var(--button-background-color);
-  border-color: var(--button-border-color);
-  border-width: var(--button-border-width);
-  color: var(--button-color);
-  font-size: var(--button-font-size);
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-
-  text-align: center;
-  white-space: nowrap;
-
-  border-radius: var(--radius);
-  padding: var(--code-padding);
-  /* box-padding > ...button-paddings > code-padding */
-}
+/* card .strong is on inicio.css */
 
 
 figure {
   aspect-ratio: 9/5;
   overflow: hidden;
+  margin: 0 auto;
 }
 
-.project__name {
-  text-align: center;
-  font-size: 2rem;
-  text-transform: uppercase;
+.project-name {
+  font-size: 1.8rem;
+  line-height: .8;
+  margin-bottom: 1em;
+  /* line-height .8 se repite bastante */
+}
 
-  margin-bottom: 0;
-  /* important */
+.card-back p {
+  line-height: 1.8;
+  /* max-width: 52ch; */
+  margin-inline: auto;
+}
+
+
+/* FIGURES WITH IMGS */
+figure {
+  position: relative;
+  display: block;
+  border-radius: .5rem 0;
+}
+
+figure::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  -webkit-backdrop-filter: blur(3px) opacity(.4) brightness(1.2);
+  backdrop-filter: blur(3px) opacity(.4) brightness(1.2);
+}
+
+[data-dark='true'] figure::after {
+  -webkit-backdrop-filter: blur(3px) opacity(.4) brightness(.8);
+  backdrop-filter: blur(3px) opacity(.4) brightness(.8);
 }

@@ -1,6 +1,6 @@
 /* como @import '../node_modules/@bulvar/bulma/css/bulma.css'; no me funciona,copio el contenido a un css */
 
 /* @import 'css/bulma.css'; */
-@import 'css/lightbulma.css';
-@import 'css/reset.css';
+/* @import 'css/lightbulma.css'; */
+@import 'css/inicio.css';
 @import 'css/projects.css';
