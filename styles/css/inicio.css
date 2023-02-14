@@ -85,7 +85,7 @@
 
 
   /* marquee */
-  --duration: 30s;
+  --duration: 20s;
   --scroll-start: 0;
   --scroll-end: calc(-100% - var(--gap));
 }
@@ -99,7 +99,7 @@
   --transition-speed: 0s;
 
   /* marquee */
-  --duration: 30s;
+  --duration: 20s;
   /* deben ser existir y ser iguales aqui tambien o en un :root general */
   --scroll-start: 0;
   --scroll-end: calc(-100% - var(--gap));
