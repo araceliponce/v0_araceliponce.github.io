@@ -39,16 +39,32 @@
   <div class="radial-gradient"></div>
 
   <header style="height:0 ;" class="relative">
-    <a class="button is-small" style="position: fixed; right:2rem;" href="{{site.data.ui.btns.oppositeLang[page.lang]link}}" title="{{site.data.ui.btns.oppositeLang[page.lang]label}}">
+    <a class="button is-small on-the-right" href="{{site.data.ui.btns.oppositeLang[page.lang]link}}" title="{{site.data.ui.btns.oppositeLang[page.lang]label}}">
       {{site.data.ui.btns.oppositeLang[page.lang].label}}
     </a>
-    <ul class="flex-col-wrap-gap1 grid toggles-fixed-list">
+    <ul class="flex-col-wrap-gap1 grid on-the-left">
 
       <style>
-        .toggles-fixed-list {
-          position: fixed;
-          left: 2rem;
+        .on-the-left {
+          position: absolute;
           min-width: 16ch;
+        }
+
+        .on-the-right {
+          position: absolute;
+        }
+
+        @media screen and (min-width: 30rem) {
+          .on-the-left {
+            position: fixed;
+            left: 2rem;
+            min-width: 16ch;
+          }
+
+          .on-the-right {
+            position: fixed;
+            right: 2rem;
+          }
         }
       </style>
       <li>
@@ -193,7 +209,7 @@
 
       {%endfor%}
 
-      <address class="mia">
+      <address class="mia round">
         <ul>
           <li>
             Email: <a class="mia" href="mailto:aponcesanga@gmail.com" title="{{site.data.ui.links.email[page.lang]}}">aponcesanga@gmail.com</a>
@@ -210,9 +226,9 @@
   </main>
 
   <footer class="footer relative">
-    <div class="flex-row-wrap-gap1 align-i-center has-limited-width p-is-flex1 mia">
+    <div class="flex-row-wrap-gap1 align-i-center container is-limited p-is-flex1">
       <p>{{-site.data.ui.footer[page.lang]copy | markdownify-}}</p>
-      <a class="button is-small" href="#" title="{{site.data.ui.btns.top[page.lang]}}">{{site.data.ui.btns.top[page.lang]}}</a>
+      <a class="button is-small is-rounded" href="#" title="{{site.data.ui.btns.top[page.lang]}}">{{site.data.ui.btns.top[page.lang]}}</a>
     </div>
   </footer>
 

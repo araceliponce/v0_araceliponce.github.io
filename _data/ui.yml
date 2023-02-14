@@ -4,7 +4,7 @@ nav:
       label: My 2023 projects
       id: projects
     skills:
-      label: My tools/methods
+      label: My tech stack
       id: skills
     info:
       label: My contact info
@@ -49,10 +49,9 @@ projects:
 
 skills:
   en:
-    title: my tools
+    title: my tech stack
     desc: >-
-      Hi again! <br>
-      My areas of focus are HTML5, CSS3, SASS and Javascript, but I find myself exploring different web technologies everyday. So, below I have listed the ones I know the best.
+      A short list of the tools I use the most when developing websites
   es:
     title: mis herramientas
     desc: >-
@@ -61,10 +60,10 @@ skills:
 info:
   en:
     title: Hi again
-    line1: If you have any questions, or a web project you want to carry out/improve, you can contact me
+    line1: If you have any questions, or a web project you want to carry out/improve, you can email me. I will be back to you shortly.
   es: 
     title: Hola de nuevo
-    line1: 'Si tienes alguna pregunta o piensas que podría ser la persona ideal para un puesto de trabajo que conoces, envíame un correo. te responderé en breve.'
+    line1: Si tienes alguna pregunta o piensas que podría ser la persona ideal para un puesto de trabajo que conoces, envíame un correo. Te responderé en breve.
 
 footer:
   en:
@@ -122,7 +121,6 @@ tools:
       - CSS3
       - Sass
       - JavaScript
-      #- JQuery
       - TypeScript
       - Liquid
     Dev Frameworks:
