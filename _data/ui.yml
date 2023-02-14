@@ -122,7 +122,7 @@ tools:
       - CSS3
       - Sass
       - JavaScript
-      - JQuery
+      #- JQuery
       - TypeScript
       - Liquid
     Dev Frameworks:
