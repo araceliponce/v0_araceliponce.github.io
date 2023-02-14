@@ -382,10 +382,6 @@ header a {
 
 }
 
-.has-inline-padding {
-  padding-inline: 2rem;
-}
-
 .hi+p {
   /* !bug al usar | markdownify el nuevo p se crea debajo del p.hi */
   font-size: 3.4rem;
