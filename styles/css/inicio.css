@@ -243,32 +243,9 @@ h3 {
   gap: var(--gap, .3rem);
 }
 
-.grid .button {
-  width: 100%;
-  /* cada .button dentro de .grid obtiene el width 100% si es nieto */
-}
-
 .relative {
   position: relative;
   /* padding-inline: 2rem; */
-}
-
-.has-sparkles {
-  position: absolute;
-  top: 0;
-  right: 2rem;
-
-  /* is a flex mayusc line */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  gap: 1ch;
-  text-transform: uppercase;
-  font-size: var(--size-small);
-  /* .75rem */
 }
 
 .wrapper {
@@ -344,18 +321,13 @@ h3 {
   margin-left: auto;
 }
 
-header {
-  --size: 3rem;
-  z-index: 7;
-  /* para el btn de en/es */
-}
-
+/* 
 nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: var(--gap);
-}
+} */
 
 header a {
   /* height: var(--size); */
@@ -732,31 +704,7 @@ p strong {
 @media screen and(min-width:30rem) {}
 
 /* o .header */
-.toggles {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  z-index: 99;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 1rem;
 
-  /* display: grid; grid para volverlos 1 columna en lugar de 1 fila*/
-}
-
-/* o .nav */
-.not-toggles {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 99;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 1rem;
-
-}
 
 /* sin usar */
 .toggle {
@@ -826,42 +774,6 @@ p strong {
 
 
 
-img {
-  max-width: 100%;
-  /* height: auto; */
-}
-
-
-
-/*  */
-.flex-col-wrap-gap1,
-.flex-row-wrap-gap1 {
-  --gap: .3rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: var(--gap);
-}
-
-.flex-row-wrap-gap1 {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-}
-
-.flex-col-wrap-gap1 {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: column wrap;
-  flex-flow: column wrap;
-}
-
-.justify-center {
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
 
 /* PROJECTS SECTION */
 
@@ -1038,13 +950,10 @@ svg {
 
 
 
-.is-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--gap);
-}
 
-/* porque usamos sublistas que no son hijos directos */
+
+/* ver .is-grid en layout.css
+porque usamos sublistas que no son hijos directos */
 .is-grid ul {
   display: grid;
   gap: var(--gap);
@@ -1075,10 +984,7 @@ svg {
 }
 
 
-section {
-  /* min-height: 100vh; */
-  padding: 2rem;
-}
+
 
 
 /* info SECTION */

@@ -1,4 +1,0 @@
----
-layout: inicio
-lang: es
----

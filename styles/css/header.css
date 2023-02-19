@@ -1,0 +1,4 @@
+.grid .button {
+  width: 100%;
+  /* cada .button dentro de .grid obtiene el width 100% si es nieto */
+}

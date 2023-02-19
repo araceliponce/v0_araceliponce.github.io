@@ -5,29 +5,7 @@
 
 <body class="inicio">
 
-  <script>
-    var hasUsedDarkMode = localStorage.getItem("hasUsedDarkMode");
-    var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)')['matches']; //boolean
-
-    var isOkWithMotion =
-      window.matchMedia('(prefers-reduced-motion: no-preference)')['matches']; //boolean
-
-    var hasBeenOkWithMotion = localStorage.getItem('hasBeenOkWithMotion');
-
-    console.log(hasUsedDarkMode, prefersDarkMode, isOkWithMotion, hasBeenOkWithMotion)
-
-
-    document.documentElement.dataset.dark = hasUsedDarkMode || 'false';
-
-    if (hasBeenOkWithMotion) {
-      document.documentElement.dataset.motion = hasBeenOkWithMotion;//primero busca en ls, si no hay nada, busca las preferencias
-    } else {
-      document.documentElement.dataset.motion = isOkWithMotion
-    }
-
-    console.log(isOkWithMotion, hasBeenOkWithMotion)
-    console.log(document.documentElement.dataset)
-  </script>
+  {% include first-script.html %}
 
   <svg class="noise-container" width="100%" height="100%" viewBox="0 1 1365 352" preserveAspectRatio="xMidYMid slice">
     <!-- https://stackoverflow.com/questions/64570268/how-to-make-svg-width-responsive-but-keep-svg-height-unchanged -->
@@ -38,27 +16,55 @@
   </svg>
   <div class="radial-gradient"></div>
 
-  <!--   <header style="height:0 ;" class="relative">
-
-  </header> -->
-
   <main>
-    <a class="button is-small on-the-right" href="{{site.data.ui.btns.oppositeLang[page.lang]link}}" title="{{site.data.ui.btns.oppositeLang[page.lang]label}}">
-      {{site.data.ui.btns.oppositeLang[page.lang].label}}
-    </a>
+
+    <ul class="flex-col-wrap-gap1 grid on-the-right">
+      <li>
+        <a class="button is-small" href="{{site.data.ui.btns.oppositeLang[page.lang]link}}" title="{{site.data.ui.btns.oppositeLang[page.lang]label}}">
+          {{site.data.ui.btns.oppositeLang[page.lang].label}}
+        </a>
+      </li>
+      <li class="flex-col-wrap-gap1">
+        <div class="grid-wide-small">
+          <style>
+            .grid-wide-small {
+              display: grid;
+              grid-template-columns: 1fr 2rem;
+              gap: .3rem;
+            }
+          </style>
+          <!-- or {{ page.url  | absolute_url }} -->
+          <a class="button is-small" href="{{page.url}}online-cv" title="{{site.data.ui.btns.goToOnlineCv[page.lang]}}">
+            {{site.data.ui.btns.goToOnlineCv[page.lang]}}
+          </a>
+          <a class="button is-small" href="./assets/cv_{{page.lang}}.pdf" download="webdev_araceliponce" title="{{site.data.ui.btns.fastDownloadCv[page.lang]}}">
+            {% include download-svg.html %}
+          </a>
+        </div>
+      </li>
+    </ul>
     <ul class="flex-col-wrap-gap1 grid on-the-left">
 
       <style>
+        .flex-0 {
+          flex: 0;
+        }
+
+        .grid .button {
+          display: block;
+          /* en caso de elementos inline, necesita ser bloque para que el width le afecte */
+        }
+
         .on-the-left {
           position: absolute;
           min-width: 18ch;
           left: 2rem;
-
         }
 
         .on-the-right {
           position: absolute;
           right: 2rem;
+          min-width: 18ch;
         }
 
         .has-inline-padding {
@@ -106,8 +112,24 @@
       </li>
     </ul>
 
+    <style>
+      .mt {
+        margin-top: 3rem;
+      }
+
+      .almost-100vh {
+        min-height: calc(100vh - 3rem);
+        min-height: calc(100svh - 3rem);
+        padding: var(--padding);
+      }
+
+      .is-small svg {
+        height: 100%;
+        stroke-width: 1.3;
+      }
+    </style>
     <section class="hero">
-      <div class="wrapper wrapper100vh ">
+      <div class="wrapper almost-100vh mt">
 
         <div class="marquee" aria-hidden="true">
           {% include bottom-icons.html %}

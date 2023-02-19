@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang={{page.lang}}>
+
+{% include head.html %}
+
+<body>
+  {% include first-script.html %}
+
+  {{content}}
+  <style>
+    body {
+      scrollbar-color: dark;
+    }
+
+    [data-dark=true] body {
+      scrollbar-color: red orange;
+    }
+  </style>
+</body>
+
+
+</html>

@@ -1,0 +1,23 @@
+<script>
+  var hasUsedDarkMode = localStorage.getItem("hasUsedDarkMode");
+  var prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)')['matches']; //boolean
+
+  var isOkWithMotion =
+    window.matchMedia('(prefers-reduced-motion: no-preference)')['matches']; //boolean
+
+  var hasBeenOkWithMotion = localStorage.getItem('hasBeenOkWithMotion');
+
+  // console.log(hasUsedDarkMode, prefersDarkMode, isOkWithMotion, hasBeenOkWithMotion)
+
+
+  document.documentElement.dataset.dark = hasUsedDarkMode || 'false';
+
+  if (hasBeenOkWithMotion) {
+    document.documentElement.dataset.motion = hasBeenOkWithMotion;//primero busca en ls, si no hay nada, busca las preferencias
+  } else {
+    document.documentElement.dataset.motion = isOkWithMotion
+  }
+
+  // console.log(isOkWithMotion, hasBeenOkWithMotion)
+  // console.log(document.documentElement.dataset)
+</script>

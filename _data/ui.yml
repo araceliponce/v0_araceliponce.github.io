@@ -92,6 +92,13 @@ btns:
     es:
       link: /en
       label: Versión en inglés
+  
+  goToOnlineCv:
+    en: See online CV
+    es: Visitar CV online
+  fastDownloadCv:
+    en: Download CV
+    es: Descargar CV
 
   top:
     en: Go to the top!
