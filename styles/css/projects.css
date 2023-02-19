@@ -11,9 +11,9 @@
 }
 
 .cards {
-  --padding: 1.5rem;
+  --mt: 1.5rem;
   --radius: .5rem;
-  padding: var(--padding);
+  margin-top: var(--mt);
 }
 
 .flip .card {
