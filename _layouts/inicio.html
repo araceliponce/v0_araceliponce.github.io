@@ -180,7 +180,7 @@
       {% include tools1.html %}
     </section>
 
-    <section id="{{site.data.ui.nav[page.lang]info.id}}" class="info container is-limited" aria-labelledby="infoTitle">
+    <!--     <section id="{{site.data.ui.nav[page.lang]info.id}}" class="info container is-limited" aria-labelledby="infoTitle">
       {%-for item in site.data.ui.info[page.lang]-%}
 
       {%if item[0]=='title'%}
@@ -191,26 +191,64 @@
 
       {%endfor%}
 
-      <address class="mia round">
-        <ul>
+
+    </section> -->
+  </main>
+
+  <footer class="footer relative" id="{{site.data.ui.nav[page.lang]info.id}}" class="info container is-limited" aria-labelledby="infoTitle">
+    <h2 id="infoTitle">{{-site.data.ui.footer[page.lang]title-}}</h2>
+    <div class="footer-content flex-row-wrap-gap1">
+      {{-site.data.ui.footer[page.lang]question | markdownify-}}
+
+      <address class="glass has-full-width">
+        <ul class="w-fit-content mia">
           <li>
-            Email: <a class="mia" href="mailto:aponcesanga@gmail.com" title="{{site.data.ui.links.email[page.lang]}}">aponcesanga@gmail.com</a>
+            Email: <a class="" href="mailto:aponcesanga@gmail.com" title="{{site.data.ui.links.email[page.lang]}}">aponcesanga@gmail.com</a>
           </li>
           <li>
             Github: <a href="https://github.com/araceliponce" title="{{site.data.ui.links.github[page.lang]}}">araceliponce</a>
           </li>
           <li>
-            Perú (GTM-5)
+            Perú (GTM/UTC -5:00)
           </li>
         </ul>
       </address>
-    </section>
-  </main>
+      <style>
+        .footer-content {
+          --gap: 1.5rem;
+        }
 
-  <footer class="footer relative">
-    <div class="flex-row-wrap-gap1 align-i-center container is-limited p-is-flex1">
-      <p>{{-site.data.ui.footer[page.lang]copy | markdownify-}}</p>
-      <a class="button is-small is-rounded" href="#" title="{{site.data.ui.btns.top[page.lang]}}">{{site.data.ui.btns.top[page.lang]}}</a>
+        .footer-content>p:first-of-type {
+          font-size: 2.5rem;
+
+          line-height: 1.2;
+          margin-top: .3em;
+        }
+
+        address {
+          margin: 0;
+          font-style: normal;
+          padding: 2rem;
+          /* text-align: center; */
+        }
+
+        .firstchild-is-flex1>:first-child {
+          flex: 1;
+        }
+
+        .has-full-width {
+          width: 100%;
+        }
+
+        .w-fit-content {
+          width: fit-content;
+        }
+      </style>
+
+      <div class="flex-row-wrap-gap1 firstchild-is-flex1 has-full-width align-i-center mt">
+        {{-site.data.ui.footer[page.lang]copy | markdownify-}}
+        <a class="button is-small is-rounded" href="#" title="{{site.data.ui.btns.top[page.lang]}}">{{site.data.ui.btns.top[page.lang]}}</a>
+      </div>
     </div>
   </footer>
 

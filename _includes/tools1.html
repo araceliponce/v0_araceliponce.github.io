@@ -7,7 +7,7 @@
     <ul class="flex-row-wrap-gap1">
 
       {% for item in group [1] %}
-      <li class="round has-glow">
+      <li class="glass">
         <svg aria-hidden="true">
           <title>{{item|upcase}}</title>
           <use xlink:href="#{{item}}" />
@@ -22,6 +22,10 @@
 
   <!-- solo el primer elemento dentro de .grid necesita un valor en grid-area -->
   <style>
+    /* .glass.has-glow:hover {
+      background: var(--bg4);
+    } */
+
     @media (min-width: 30rem) {
       .tools.grid>li:nth-child(1) {
         grid-area: span 2/span 2;

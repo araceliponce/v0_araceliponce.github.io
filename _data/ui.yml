@@ -57,18 +57,14 @@ skills:
     desc: >-
       Una breve lista de las herramientas que más conozco y he usado 
  
-info:
-  en:
-    title: Hi again
-    line1: If you have any questions, or a web project you want to carry out/improve, you can email me. I will be back to you shortly.
-  es: 
-    title: Hola de nuevo
-    line1: Si tienes alguna pregunta o piensas que podría ser la persona ideal para un puesto de trabajo que conoces, envíame un correo. Te responderé en breve.
-
 footer:
   en:
-    copy: © Copyright MMXVIII. Designed and coded by [araceliponce](https://github.com/araceliponce).
+    title: Contact info
+    question: Would you like to work together? Just send me an email. I will be back to you shortly
+    copy: © Copyright MMXVIII. Designed and coded by [araceliponce](https://github.com/araceliponce). 
   es:
+    title: Información de contacto
+    question: Quieres trabajar juntos? Solo envíame un correo. Te responderé en breve
     copy: © Copyright MMXVIII. Diseño y maquetación web por [araceliponce](https://github.com/araceliponce). 
 
 btns:
@@ -107,11 +103,11 @@ btns:
 
 links:
   email:
-    en: Github de Araceli Ponce
+    en: Araceli Ponce's email
     es: Email de Araceli Ponce
   github:
     en: Araceli Ponce's github
-    email: Araceli Ponce's email
+    es: Github de Araceli Ponce
   demo:
     en: Check out the demo
     es: Mira el sitio web

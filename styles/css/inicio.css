@@ -72,7 +72,7 @@
   --bg3: #443fd0;
   --color3: #f0d6d2;
 
-  --bg4: #3fd07e;
+  --bg4: #2d2fba;
   --color4: #eaf75b;
 }
 
@@ -698,7 +698,6 @@ p strong {
 
 
   justify-content: center;
-  /* antes center */
 }
 
 /* son los items */
@@ -710,12 +709,7 @@ p strong {
   /* este padding ayuda a que se vea balanceado, el svg con el texto debajo 
   ahora, solo el svg, lleva padding, asi hay mas espacio para el texto*/
 
-
-  /* width: min(7rem, 10vw); */
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  /* basado en width del small en svg+small */
+  min-width: 7rem;
 
   -webkit-transition: all var(--transition-speed) ease;
   -o-transition: all var(--transition-speed) ease;
@@ -736,22 +730,24 @@ p strong {
   /* manipulamos el ancho mediante el padding */
 
 
-  fill: var(--bg4);
+  fill: var(--color);
   /* DISPLAY GRID EN HOVER?????????????? */
 }
 
 
 svg {
   aspect-ratio: 1;
-  /* todos mis svgs son iconos,IMPORTANTE .If using defs and symbols for svgs, you must provide specific sizing to the <svg> element https://stackoverflow.com/questions/52166338/cannot-change-svg-use-icon-size-when-linked-to-symbol */
+  /* todos mis svgs son iconos, aspect ratio les da el alto que el ancho esta definido ya,IMPORTANTE .If using defs and symbols for svgs, you must provide specific sizing to the <svg> element https://stackoverflow.com/questions/52166338/cannot-change-svg-use-icon-size-when-linked-to-symbol */
 }
 
 
 .tools svg+small {
+  font-size: 1rem;
   text-align: center;
   color: var(--color);
+  /* mismo color de body */
 
-  width: 6rem;
+  /* width: 6rem; */
   display: block;
 }
 
@@ -803,7 +799,7 @@ svg {
   --shadow1: rgba(137, 235, 161, 0.24);
   --shadow2: rgba(168, 193, 241, 0.32);
 
-  background: var(--shadow1);
+  /* background: var(--shadow1); */
   padding: 1em 1em 1.5em;
   border-radius: 1em;
 }
