@@ -284,6 +284,8 @@ h3 {
   flex: 1;
   /* siempre va a crecer mas */
   margin-inline: auto;
+  padding-inline: 2rem;
+  /* importante */
 
 
   min-height: 60vh;
