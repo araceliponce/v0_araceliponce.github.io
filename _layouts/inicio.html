@@ -46,54 +46,8 @@
     <ul class="flex-col-wrap-gap1 grid on-the-left">
 
       <style>
-        .flex-0 {
-          flex: 0;
-        }
 
-        .grid .button {
-          display: block;
-          /* en caso de elementos inline, necesita ser bloque para que el width le afecte */
-        }
 
-        .on-the-left {
-          position: absolute;
-          min-width: 18ch;
-          left: 2rem;
-        }
-
-        .on-the-right {
-          position: absolute;
-          right: 2rem;
-          min-width: 18ch;
-        }
-
-        .has-inline-padding {
-          padding-inline: 0;
-        }
-
-        header {
-          margin-top: 1rem;
-        }
-
-        @media screen and (min-width: 30rem) {
-          header {
-            margin-top: .5rem;
-          }
-
-          .on-the-left {
-            position: fixed;
-            left: 1rem;
-          }
-
-          .on-the-right {
-            position: fixed;
-            right: 1rem;
-          }
-
-          .has-inline-padding {
-            padding-inline: 2rem;
-          }
-        }
       </style>
       <li>
         <button type="button" aria-label="Toggle theme" id="themeToggle" class="button is-small is-rounded" hidden>

@@ -1,4 +1,40 @@
 .grid .button {
+  display: block;
   width: 100%;
-  /* cada .button dentro de .grid obtiene el width 100% si es nieto */
+  /* en caso de elementos inline, necesita ser bloque para que el width le afecte */
+}
+
+.on-the-left {
+  position: absolute;
+  min-width: 18ch;
+  left: 2rem;
+}
+
+.on-the-right {
+  position: absolute;
+  right: 2rem;
+  min-width: 18ch;
+}
+
+
+
+header {
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 30rem) {
+  header {
+    margin-top: .5rem;
+  }
+
+  .on-the-left {
+    position: fixed;
+    left: 1rem;
+  }
+
+  .on-the-right {
+    position: fixed;
+    right: 1rem;
+  }
+
 }

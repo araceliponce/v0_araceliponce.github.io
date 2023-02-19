@@ -3,11 +3,18 @@ section {
   padding: 2rem;
 }
 
+.has-inline-padding {
+  padding-inline: 2rem;
+}
 
 .is-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--gap);
+}
+
+.flex-0 {
+  flex: 0;
 }
 
 .flex-col-wrap-gap1,
