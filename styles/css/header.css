@@ -4,6 +4,11 @@
   /* en caso de elementos inline, necesita ser bloque para que el width le afecte */
 }
 
+.on-the-left,
+.on-the-right {
+  top: 1rem;
+}
+
 .on-the-left {
   position: absolute;
   min-width: 18ch;
