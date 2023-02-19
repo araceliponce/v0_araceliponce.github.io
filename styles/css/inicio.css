@@ -450,6 +450,16 @@ p strong {
 } */
 
 
+.marquee--reverse .marquee-list {
+  animation-direction: reverse;
+  -webkit-animation-delay: .3s;
+  animation-delay: .3s;
+}
+
+[data-motion=false] .marquee-list {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
 
 @media (prefers-reduced-motion: reduce) {
   /* .marquee-list {
@@ -459,10 +469,7 @@ p strong {
  */
 }
 
-[data-motion=false] .marquee-list {
-  -webkit-animation-play-state: paused;
-  animation-play-state: paused;
-}
+
 
 
 @-webkit-keyframes scroll-x {
@@ -684,6 +691,12 @@ p strong {
   --gap: min(.5rem, 1vmin);
 
 
+  -webkit-box-pack: center;
+
+
+  -ms-flex-pack: center;
+
+
   justify-content: center;
   /* antes center */
 }
@@ -699,6 +712,8 @@ p strong {
 
 
   /* width: min(7rem, 10vw); */
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   /* basado en width del small en svg+small */
 
