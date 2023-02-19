@@ -347,11 +347,16 @@ header a {
 /* HERO */
 
 .hero {
-  --padding: 2rem 0;
-  /* height: fit-content; no afecta */
   text-align: start;
   color: var(--color);
+}
 
+
+@media screen and (max-width:30rem) {
+  .hero {
+    /* su padding normal es 2rem, como todas las secciones */
+    padding: 2rem 0;
+  }
 }
 
 .hi+p {
