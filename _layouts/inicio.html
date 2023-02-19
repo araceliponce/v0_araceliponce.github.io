@@ -111,24 +111,14 @@
               {%endfor%}
             </div>
           </div>
-          <style>
-            .hero .is-small:nth-last-of-type(2) ::before {
-              /* background-color: red !important; */
-              content: ', ';
-              width: 3ch;
-            }
-          </style>
         </div>
 
         <div class="marquee marquee--reverse" aria-hidden="true">
           {% include top-icons.html %}
           {% include top-icons.html %}
         </div>
-
       </div>
     </section>
-
-
 
 
     <section id="{{site.data.ui.nav[page.lang]projects.id}}" class="projects" aria-labelledby="projectsTitle">
@@ -147,7 +137,7 @@
         <ul class="cards flip">
           {%-for project in site.data.projects-%}
           <li>
-            <h3 class="project-name">{{project.name}}</h3>
+            <h3 class="project-name">{{project.name|capitalize}}</h3>
             <div class="card" tabindex="0">
               <div class="card-inner">
                 <div class="card-front">

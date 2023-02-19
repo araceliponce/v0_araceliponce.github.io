@@ -13,20 +13,22 @@
 .cards {
   --mt: 1.5rem;
   --radius: .5rem;
+  --padding: 1rem;
   margin-top: var(--mt);
 }
 
 .flip .card {
   width: min(30rem, 100%);
-
-  /* margin-bottom: 20%;  ???*/
   margin-inline: auto;
 
   background: var(--project-clr1);
   background: linear-gradient(var(--project-clr1), var(--project-clr2));
-  padding: var(--padding);
   border-radius: var(--radius);
   /* luego le quitamos el padding y el bg para colocarlo en ambas caras */
+}
+
+.card .button {
+  color: inherit;
 }
 
 .flip li+li {
@@ -40,10 +42,13 @@
 
 .flip .card-front,
 .flip .card-back {
+  padding: var(--space-small);
   display: grid;
   -ms-flex-line-pack: center;
   align-content: center;
   gap: 2ch;
+
+  padding: var(--padding);
 }
 
 
@@ -61,7 +66,7 @@
     perspective: 2000px;
     /* subtle 3d effect, 1000px is ok, 10px is too much */
 
-    padding: 0;
+    /* padding: 0; */
     background: transparent;
   }
 
@@ -115,12 +120,9 @@
     backface-visibility: hidden;
     transition: all var(--transition-speed) ease;
 
-
-
-    padding: var(--padding);
     border-radius: var(--radius);
     box-shadow: rgba(149, 157, 165, 0.3) 0px 12px 48px 0px;
-
+    padding: var(--padding);
   }
 
   .flip .card-front {

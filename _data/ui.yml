@@ -130,19 +130,20 @@ tools:
       - JavaScript
       - TypeScript
       - Liquid
-    Dev Frameworks:
+    Dev frameworks:
       - Angular
       - Jekyll
-    UI Frameworks & tools:
+    UI frameworks & tools:
       - Bootstrap
       - Bulma
       - Figma
-    Database: 
+    Databases: 
       - MongoDB
       - Supabase
       - Firebase
     Version control:
       - Git
+      - Github
   es:
     Lenguajes:
       - HTML5
@@ -163,5 +164,6 @@ tools:
       - MongoDB
       - Supabase
       - Firebase
-    Gestion de versiones:
+    Gestión de versiones:
       - Git
+      - Github
